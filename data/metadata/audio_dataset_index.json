@@ -1,0 +1,4117 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "created_date": "2026-01-28",
+    "description": "Audio dataset index for explosion sound effect classification",
+    "base_path": "data/audio",
+    "labels_path": "data/labels",
+    "categories": [
+      "chemical",
+      "electrical",
+      "fire",
+      "space"
+    ],
+    "segment_types": [
+      "ground",
+      "shock",
+      "roar"
+    ],
+    "total_files": 179,
+    "labeled_files": 120,
+    "unlabeled_files": 59
+  },
+  "data": [
+    {
+      "id": "chemical_labeled_chem_explreal_explosion_dynamite_0408_031_stereo_pse_det_hld3k(3).wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_031_stereo_pse_det_hld3k(3).wav",
+      "path": "data/audio/chemical/labeled/chem_explreal_explosion_dynamite_0408_031_stereo_pse_det_hld3k(3).wav",
+      "relative_path": "chemical/labeled/chem_explreal_explosion_dynamite_0408_031_stereo_pse_det_hld3k(3).wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 12.319886621315193,
+      "sample_rate": 44100,
+      "segments": {
+        "shock": [
+          {
+            "start": 0.3440636564111,
+            "end": 0.48772853422105
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.48772853422105,
+            "end": 12.31989583333333
+          }
+        ]
+      },
+      "coverage": {
+        "shock": 0.011661217527877969,
+        "roar": 0.9604120283575428
+      }
+    },
+    {
+      "id": "chemical_labeled_chem_expldsgn_explosion_dynamite_0408_036_pse_det_tzg3n.wav",
+      "filename": "chem_expldsgn_explosion_dynamite_0408_036_pse_det_tzg3n.wav",
+      "path": "data/audio/chemical/labeled/chem_expldsgn_explosion_dynamite_0408_036_pse_det_tzg3n.wav",
+      "relative_path": "chemical/labeled/chem_expldsgn_explosion_dynamite_0408_036_pse_det_tzg3n.wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 13.469614512471656,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.16794697134703
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.16794697134703,
+            "end": 0.3896908843502
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.3896908843502,
+            "end": 13.469625
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.012468580388215723,
+        "shock": 0.016462528515411856,
+        "roar": 0.9710696697027932
+      }
+    },
+    {
+      "id": "chemical_labeled_chem_explreal_grenade_explosion_pse_oe_b30tc.wav",
+      "filename": "chem_explreal_grenade_explosion_pse_oe_b30tc.wav",
+      "path": "data/audio/chemical/labeled/chem_explreal_grenade_explosion_pse_oe_b30tc.wav",
+      "relative_path": "chemical/labeled/chem_explreal_grenade_explosion_pse_oe_b30tc.wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 13.7,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_labeled_chem_explreal_explosion_dynamite_0408_022_stereo_pse_det_80glw.wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_022_stereo_pse_det_80glw.wav",
+      "path": "data/audio/chemical/labeled/chem_explreal_explosion_dynamite_0408_022_stereo_pse_det_80glw.wav",
+      "relative_path": "chemical/labeled/chem_explreal_explosion_dynamite_0408_022_stereo_pse_det_80glw.wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 9.491972789115646,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.03119741260807
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.03119741260807,
+            "end": 0.0734566736001
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.0734566736001,
+            "end": 9.49197916666667
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.003286715343710611,
+        "shock": 0.004452105155683578,
+        "roar": 0.9922618513894919
+      }
+    },
+    {
+      "id": "chemical_labeled_chem_explreal_explosion_dynamite_0408_028_stereo_pse_det_be94o.wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_028_stereo_pse_det_be94o.wav",
+      "path": "data/audio/chemical/labeled/chem_explreal_explosion_dynamite_0408_028_stereo_pse_det_be94o.wav",
+      "relative_path": "chemical/labeled/chem_explreal_explosion_dynamite_0408_028_stereo_pse_det_be94o.wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 5.165283446712018,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.16780161530834,
+            "end": 0.23119333664705
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.23119333664705,
+            "end": 0.36209128719383
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.36209128719383,
+            "end": 5.16529166666667
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.012272651054428048,
+        "shock": 0.02534187172827923,
+        "roar": 0.9299006393405839
+      }
+    },
+    {
+      "id": "chemical_labeled_chem_frwkcomr_fireworks_distant_single_blasts_explosions_deep_pse_gen_zygc1.wav",
+      "filename": "chem_frwkcomr_fireworks_distant_single_blasts_explosions_deep_pse_gen_zygc1.wav",
+      "path": "data/audio/chemical/labeled/chem_frwkcomr_fireworks_distant_single_blasts_explosions_deep_pse_gen_zygc1.wav",
+      "relative_path": "chemical/labeled/chem_frwkcomr_fireworks_distant_single_blasts_explosions_deep_pse_gen_zygc1.wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 3.8373469387755104,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_labeled_chem_explreal_explosion_dynamite_0408_026_stereo_pse_det_agecg.wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_026_stereo_pse_det_agecg.wav",
+      "path": "data/audio/chemical/labeled/chem_explreal_explosion_dynamite_0408_026_stereo_pse_det_agecg.wav",
+      "relative_path": "chemical/labeled/chem_explreal_explosion_dynamite_0408_026_stereo_pse_det_agecg.wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 7.615442176870748,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.10935110208377
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.10935110208377,
+            "end": 0.41821507158846
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.41821507158846,
+            "end": 7.6154375
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.0143591270925654,
+        "shock": 0.040557588427728684,
+        "roar": 0.9450826703498052
+      }
+    },
+    {
+      "id": "chemical_labeled_chem_expldsgn_explosion_dynamite_0408_029_pse_det_ez0vj.wav",
+      "filename": "chem_expldsgn_explosion_dynamite_0408_029_pse_det_ez0vj.wav",
+      "path": "data/audio/chemical/labeled/chem_expldsgn_explosion_dynamite_0408_029_pse_det_ez0vj.wav",
+      "relative_path": "chemical/labeled/chem_expldsgn_explosion_dynamite_0408_029_pse_det_ez0vj.wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 9.07124716553288,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.00032142117095,
+            "end": 0.02082809187781
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.02082809187781,
+            "end": 0.12003628731497
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.12003628731497,
+            "end": 9.07125
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.002260623080007914,
+        "shock": 0.010936555208649982,
+        "roar": 0.9867677012148969
+      }
+    },
+    {
+      "id": "chemical_labeled_chem_expldsgn_fireworks_slowed_down_single_blasts_explosion_pse_gen_pgfu3.wav",
+      "filename": "chem_expldsgn_fireworks_slowed_down_single_blasts_explosion_pse_gen_pgfu3.wav",
+      "path": "data/audio/chemical/labeled/chem_expldsgn_fireworks_slowed_down_single_blasts_explosion_pse_gen_pgfu3.wav",
+      "relative_path": "chemical/labeled/chem_expldsgn_fireworks_slowed_down_single_blasts_explosion_pse_gen_pgfu3.wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 5.444671201814059,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.54983830793959
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.54983830793959,
+            "end": 0.73885236190765
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.73885236190765,
+            "end": 5.44466666666667
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.10098650360308158,
+        "shock": 0.03471542118192265,
+        "roar": 0.8642972422634324
+      }
+    },
+    {
+      "id": "chemical_labeled_chem_explreal_explosion_dynamite_0408_031_stereo_pse_det_hld3k(2).wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_031_stereo_pse_det_hld3k(2).wav",
+      "path": "data/audio/chemical/labeled/chem_explreal_explosion_dynamite_0408_031_stereo_pse_det_hld3k(2).wav",
+      "relative_path": "chemical/labeled/chem_explreal_explosion_dynamite_0408_031_stereo_pse_det_hld3k(2).wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 7.966575963718821,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.34988701826758,
+            "end": 0.42779154967872
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.42779154967872,
+            "end": 0.6367666628295
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.6367666628295,
+            "end": 7.96658333333333
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.00977892281024255,
+        "shock": 0.02623148440465379,
+        "roar": 0.9200711452304096
+      }
+    },
+    {
+      "id": "chemical_labeled_chem_explreal_explosion_dynamite_0408_031_pse_det_xmapt.wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_031_pse_det_xmapt.wav",
+      "path": "data/audio/chemical/labeled/chem_explreal_explosion_dynamite_0408_031_pse_det_xmapt.wav",
+      "relative_path": "chemical/labeled/chem_explreal_explosion_dynamite_0408_031_pse_det_xmapt.wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 8.25281179138322,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_labeled_chem_explreal_explosion_dynamite_0408_025_stereo_pse_det_3o9ia(6).wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_025_stereo_pse_det_3o9ia(6).wav",
+      "path": "data/audio/chemical/labeled/chem_explreal_explosion_dynamite_0408_025_stereo_pse_det_3o9ia(6).wav",
+      "relative_path": "chemical/labeled/chem_explreal_explosion_dynamite_0408_025_stereo_pse_det_3o9ia(6).wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 5.728344671201814,
+      "sample_rate": 44100,
+      "segments": {
+        "shock": [
+          {
+            "start": 0.19427774527162,
+            "end": 0.37334096832318
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.37334096832318,
+            "end": 5.72833333333333
+          }
+        ]
+      },
+      "coverage": {
+        "shock": 0.03125915658528143,
+        "roar": 0.9348237008033712
+      }
+    },
+    {
+      "id": "chemical_labeled_chem_explreal_explosion_dynamite_0408_031_stereo_pse_det_hld3k(5).wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_031_stereo_pse_det_hld3k(5).wav",
+      "path": "data/audio/chemical/labeled/chem_explreal_explosion_dynamite_0408_031_stereo_pse_det_hld3k(5).wav",
+      "relative_path": "chemical/labeled/chem_explreal_explosion_dynamite_0408_031_stereo_pse_det_hld3k(5).wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 11.710430839002267,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.32967918553495,
+            "end": 0.39088800490816
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.39088800490816,
+            "end": 0.51963271724
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.51963271724,
+            "end": 11.7104375
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.005226863145747847,
+        "shock": 0.010994020126317498,
+        "roar": 0.9556270761181883
+      }
+    },
+    {
+      "id": "chemical_labeled_chem_explreal_explosion_dynamite_0408_031_stereo_pse_det_hld3k.wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_031_stereo_pse_det_hld3k.wav",
+      "path": "data/audio/chemical/labeled/chem_explreal_explosion_dynamite_0408_031_stereo_pse_det_hld3k.wav",
+      "relative_path": "chemical/labeled/chem_explreal_explosion_dynamite_0408_031_stereo_pse_det_hld3k.wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 8.53251700680272,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.01380615639093
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.01380615639093,
+            "end": 0.13244795300987
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.13244795300987,
+            "end": 8.53252083333333
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.0016180637413230779,
+        "shock": 0.013904665707006556,
+        "roar": 0.9844777190161278
+      }
+    },
+    {
+      "id": "chemical_labeled_chem_explreal_explosion_dynamite_0408_023_pse_det_ucg8v.wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_023_pse_det_ucg8v.wav",
+      "path": "data/audio/chemical/labeled/chem_explreal_explosion_dynamite_0408_023_pse_det_ucg8v.wav",
+      "relative_path": "chemical/labeled/chem_explreal_explosion_dynamite_0408_023_pse_det_ucg8v.wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 7.418412698412698,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.01691008422406
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.01691008422406,
+            "end": 0.06570174830652
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.06570174830652,
+            "end": 7.41841666666667
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.0022794747220895666,
+        "shock": 0.006577102955312777,
+        "roar": 0.9911439572421462
+      }
+    },
+    {
+      "id": "chemical_labeled_chem_explreal_explosion_dynamite_0408_031_stereo_pse_det_hld3k(4).wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_031_stereo_pse_det_hld3k(4).wav",
+      "path": "data/audio/chemical/labeled/chem_explreal_explosion_dynamite_0408_031_stereo_pse_det_hld3k(4).wav",
+      "relative_path": "chemical/labeled/chem_explreal_explosion_dynamite_0408_031_stereo_pse_det_hld3k(4).wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 11.57984126984127,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.33098484076569,
+            "end": 0.37527154481181
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.37527154481181,
+            "end": 0.49219058641062
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.49219058641062,
+            "end": 11.57983333333333
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.0038244655530349134,
+        "shock": 0.010096774115834895,
+        "roar": 0.957495227140941
+      }
+    },
+    {
+      "id": "chemical_labeled_chem_sub:mechanicalairbrst_air_burst_small_air_release_pse_oe_zcjvt.wav",
+      "filename": "chem_sub:mechanicalairbrst_air_burst_small_air_release_pse_oe_zcjvt.wav",
+      "path": "data/audio/chemical/labeled/chem_sub:mechanicalairbrst_air_burst_small_air_release_pse_oe_zcjvt.wav",
+      "relative_path": "chemical/labeled/chem_sub:mechanicalairbrst_air_burst_small_air_release_pse_oe_zcjvt.wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 1.17,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_labeled_chem_explreal_explosion_dynamite_0408_024_stereo_pse_det_pb1ne.wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_024_stereo_pse_det_pb1ne.wav",
+      "path": "data/audio/chemical/labeled/chem_explreal_explosion_dynamite_0408_024_stereo_pse_det_pb1ne.wav",
+      "relative_path": "chemical/labeled/chem_explreal_explosion_dynamite_0408_024_stereo_pse_det_pb1ne.wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 6.71718820861678,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.08663966621477,
+            "end": 0.10734865960269
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.10734865960269,
+            "end": 0.31131301842882
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.31131301842882,
+            "end": 6.7171875
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.003082985431516507,
+        "shock": 0.030364544284241637,
+        "roar": 0.9536541604348308
+      }
+    },
+    {
+      "id": "chemical_labeled_chem_expldsgn_explosion_dynamite_0408_035_stereo_pse_det_le1zh.wav",
+      "filename": "chem_expldsgn_explosion_dynamite_0408_035_stereo_pse_det_le1zh.wav",
+      "path": "data/audio/chemical/labeled/chem_expldsgn_explosion_dynamite_0408_035_stereo_pse_det_le1zh.wav",
+      "relative_path": "chemical/labeled/chem_expldsgn_explosion_dynamite_0408_035_stereo_pse_det_le1zh.wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 17.008095238095237,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_labeled_chem_explreal_explosion_dynamite_0408_025_stereo_pse_det_3o9ia(4).wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_025_stereo_pse_det_3o9ia(4).wav",
+      "path": "data/audio/chemical/labeled/chem_explreal_explosion_dynamite_0408_025_stereo_pse_det_3o9ia(4).wav",
+      "relative_path": "chemical/labeled/chem_explreal_explosion_dynamite_0408_025_stereo_pse_det_3o9ia(4).wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 8.04829931972789,
+      "sample_rate": 44100,
+      "segments": {
+        "shock": [
+          {
+            "start": 0.26402644554819,
+            "end": 0.34343554919288
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.34343554919288,
+            "end": 8.04829166666667
+          }
+        ]
+      },
+      "coverage": {
+        "shock": 0.009866569381936804,
+        "roar": 0.9573272329208411
+      }
+    },
+    {
+      "id": "chemical_labeled_chem_explreal_explosion_dynamite_0408_033_stereo_pse_det_dlpzc(2).wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_033_stereo_pse_det_dlpzc(2).wav",
+      "path": "data/audio/chemical/labeled/chem_explreal_explosion_dynamite_0408_033_stereo_pse_det_dlpzc(2).wav",
+      "relative_path": "chemical/labeled/chem_explreal_explosion_dynamite_0408_033_stereo_pse_det_dlpzc(2).wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 9.334036281179138,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_labeled_chem_frwkcomr_fireworks_distant_single_blasts_explosions_deep_pse_gen_zygc1(2).wav",
+      "filename": "chem_frwkcomr_fireworks_distant_single_blasts_explosions_deep_pse_gen_zygc1(2).wav",
+      "path": "data/audio/chemical/labeled/chem_frwkcomr_fireworks_distant_single_blasts_explosions_deep_pse_gen_zygc1(2).wav",
+      "relative_path": "chemical/labeled/chem_frwkcomr_fireworks_distant_single_blasts_explosions_deep_pse_gen_zygc1(2).wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 4.781451247165533,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_labeled_chem_explreal_explosion_dynamite_0408_025_stereo_pse_det_3o9ia.wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_025_stereo_pse_det_3o9ia.wav",
+      "path": "data/audio/chemical/labeled/chem_explreal_explosion_dynamite_0408_025_stereo_pse_det_3o9ia.wav",
+      "relative_path": "chemical/labeled/chem_explreal_explosion_dynamite_0408_025_stereo_pse_det_3o9ia.wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 3.837981859410431,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.00913368890726
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.00913368890726,
+            "end": 0.06466751399312
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.06466751399312,
+            "end": 3.83797916666667
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.002379815549379138,
+        "shock": 0.014469538189633546,
+        "roar": 0.9831499446568996
+      }
+    },
+    {
+      "id": "chemical_labeled_chem_explreal_explosion_dynamite_0408_025_stereo_pse_det_3o9ia(5).wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_025_stereo_pse_det_3o9ia(5).wav",
+      "path": "data/audio/chemical/labeled/chem_explreal_explosion_dynamite_0408_025_stereo_pse_det_3o9ia(5).wav",
+      "relative_path": "chemical/labeled/chem_explreal_explosion_dynamite_0408_025_stereo_pse_det_3o9ia(5).wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 8.105578231292517,
+      "sample_rate": 44100,
+      "segments": {
+        "shock": [
+          {
+            "start": 0.18356576764951,
+            "end": 0.30316164657268
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.30316164657268,
+            "end": 8.10558333333333
+          }
+        ]
+      },
+      "coverage": {
+        "shock": 0.014754762153976428,
+        "roar": 0.962599023057788
+      }
+    },
+    {
+      "id": "chemical_labeled_chem_explreal_explosion_dynamite_0408_030_stereo_pse_det_2utxy.wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_030_stereo_pse_det_2utxy.wav",
+      "path": "data/audio/chemical/labeled/chem_explreal_explosion_dynamite_0408_030_stereo_pse_det_2utxy.wav",
+      "relative_path": "chemical/labeled/chem_explreal_explosion_dynamite_0408_030_stereo_pse_det_2utxy.wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 7.403492063492063,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_labeled_chem_expldsgn_explosion_dynamite_0408_029_pse_det_ez0vj(2).wav",
+      "filename": "chem_expldsgn_explosion_dynamite_0408_029_pse_det_ez0vj(2).wav",
+      "path": "data/audio/chemical/labeled/chem_expldsgn_explosion_dynamite_0408_029_pse_det_ez0vj(2).wav",
+      "relative_path": "chemical/labeled/chem_expldsgn_explosion_dynamite_0408_029_pse_det_ez0vj(2).wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 13.100702947845805,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.18679659645623
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.18679659645623,
+            "end": 0.380146060298
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.380146060298,
+            "end": 13.10070833333333
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.014258517058196914,
+        "shock": 0.01475870910221372,
+        "roar": 0.9709831849234485
+      }
+    },
+    {
+      "id": "chemical_labeled_chem_explreal_explosion_dynamite_0408_025_stereo_pse_det_3o9ia(2).wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_025_stereo_pse_det_3o9ia(2).wav",
+      "path": "data/audio/chemical/labeled/chem_explreal_explosion_dynamite_0408_025_stereo_pse_det_3o9ia(2).wav",
+      "relative_path": "chemical/labeled/chem_explreal_explosion_dynamite_0408_025_stereo_pse_det_3o9ia(2).wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 4.611292517006802,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.18066425528943,
+            "end": 0.21142222403701
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.21142222403701,
+            "end": 0.23406658997033
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.23406658997033,
+            "end": 4.61129166666667
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.006670140450674563,
+        "shock": 0.004910633157581272,
+        "roar": 0.9492403833746821
+      }
+    },
+    {
+      "id": "chemical_labeled_chem_explreal_explosion_dynamite_0408_023_pse_det_ucg8v(2).wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_023_pse_det_ucg8v(2).wav",
+      "path": "data/audio/chemical/labeled/chem_explreal_explosion_dynamite_0408_023_pse_det_ucg8v(2).wav",
+      "relative_path": "chemical/labeled/chem_explreal_explosion_dynamite_0408_023_pse_det_ucg8v(2).wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 13.188321995464852,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.19343718667185,
+            "end": 0.22164677639483
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.22164677639483,
+            "end": 0.28182048103346
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.28182048103346,
+            "end": 13.1883125
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.0021389824825842584,
+        "shock": 0.0045626505524601485,
+        "roar": 0.9786303385225789
+      }
+    },
+    {
+      "id": "chemical_labeled_chem_explreal_explosion_dynamite_0408_023_pse_det_ucg8v(3).wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_023_pse_det_ucg8v(3).wav",
+      "path": "data/audio/chemical/labeled/chem_explreal_explosion_dynamite_0408_023_pse_det_ucg8v(3).wav",
+      "relative_path": "chemical/labeled/chem_explreal_explosion_dynamite_0408_023_pse_det_ucg8v(3).wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 4.94562358276644,
+      "sample_rate": 44100,
+      "segments": {
+        "shock": [
+          {
+            "start": 0.21232277251012,
+            "end": 0.22487139972703
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.22487139972703,
+            "end": 4.945625
+          }
+        ]
+      },
+      "coverage": {
+        "shock": 0.0025373195122728397,
+        "roar": 0.9545315209032377
+      }
+    },
+    {
+      "id": "chemical_labeled_chem_explreal_explosion_dynamite_0408_025_stereo_pse_det_3o9ia(3).wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_025_stereo_pse_det_3o9ia(3).wav",
+      "path": "data/audio/chemical/labeled/chem_explreal_explosion_dynamite_0408_025_stereo_pse_det_3o9ia(3).wav",
+      "relative_path": "chemical/labeled/chem_explreal_explosion_dynamite_0408_025_stereo_pse_det_3o9ia(3).wav",
+      "category": "chemical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 6.988571428571428,
+      "sample_rate": 44100,
+      "segments": {
+        "shock": [
+          {
+            "start": 0.13947288756634,
+            "end": 0.22784120564272
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.22784120564272,
+            "end": 6.9885625
+          }
+        ]
+      },
+      "coverage": {
+        "shock": 0.012644689831043747,
+        "roar": 0.9673967510323171
+      }
+    },
+    {
+      "id": "chemical_unlabeled_chem_explreal_grenade_explosion_pse_os_g8b2k.wav",
+      "filename": "chem_explreal_grenade_explosion_pse_os_g8b2k.wav",
+      "path": "data/audio/chemical/unlabeled/chem_explreal_grenade_explosion_pse_os_g8b2k.wav",
+      "relative_path": "chemical/unlabeled/chem_explreal_grenade_explosion_pse_os_g8b2k.wav",
+      "category": "chemical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 4.0199773242630386,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_unlabeled_chem_explreal_grenade_explosion_pse_oe_7luvx.wav",
+      "filename": "chem_explreal_grenade_explosion_pse_oe_7luvx.wav",
+      "path": "data/audio/chemical/unlabeled/chem_explreal_grenade_explosion_pse_oe_7luvx.wav",
+      "relative_path": "chemical/unlabeled/chem_explreal_grenade_explosion_pse_oe_7luvx.wav",
+      "category": "chemical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 2.45,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_unlabeled_chem_sub:mechanicalairhiss_air_burst_bus_brake_pse_oe_qsbfg.wav",
+      "filename": "chem_sub:mechanicalairhiss_air_burst_bus_brake_pse_oe_qsbfg.wav",
+      "path": "data/audio/chemical/unlabeled/chem_sub:mechanicalairhiss_air_burst_bus_brake_pse_oe_qsbfg.wav",
+      "relative_path": "chemical/unlabeled/chem_sub:mechanicalairhiss_air_burst_bus_brake_pse_oe_qsbfg.wav",
+      "category": "chemical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 3.483310657596372,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_unlabeled_chem_explreal_explosion_dynamite_0408_031_pse_det_xmapt(6).wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_031_pse_det_xmapt(6).wav",
+      "path": "data/audio/chemical/unlabeled/chem_explreal_explosion_dynamite_0408_031_pse_det_xmapt(6).wav",
+      "relative_path": "chemical/unlabeled/chem_explreal_explosion_dynamite_0408_031_pse_det_xmapt(6).wav",
+      "category": "chemical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 6.133219954648526,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_unlabeled_chem_sub:mechanicalvehtire_tire_blows_pickup_truck_pse_rkt_q4lr1.wav",
+      "filename": "chem_sub:mechanicalvehtire_tire_blows_pickup_truck_pse_rkt_q4lr1.wav",
+      "path": "data/audio/chemical/unlabeled/chem_sub:mechanicalvehtire_tire_blows_pickup_truck_pse_rkt_q4lr1.wav",
+      "relative_path": "chemical/unlabeled/chem_sub:mechanicalvehtire_tire_blows_pickup_truck_pse_rkt_q4lr1.wav",
+      "category": "chemical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 2.2325396825396826,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_unlabeled_chem_frwkcomr_fireworks_distant_single_blast_explosions_deep_pse_gen_riucn.wav",
+      "filename": "chem_frwkcomr_fireworks_distant_single_blast_explosions_deep_pse_gen_riucn.wav",
+      "path": "data/audio/chemical/unlabeled/chem_frwkcomr_fireworks_distant_single_blast_explosions_deep_pse_gen_riucn.wav",
+      "relative_path": "chemical/unlabeled/chem_frwkcomr_fireworks_distant_single_blast_explosions_deep_pse_gen_riucn.wav",
+      "category": "chemical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 3.82,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_unlabeled_chem_explreal_explosion_dynamite_0408_033_stereo_pse_det_dlpzc.wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_033_stereo_pse_det_dlpzc.wav",
+      "path": "data/audio/chemical/unlabeled/chem_explreal_explosion_dynamite_0408_033_stereo_pse_det_dlpzc.wav",
+      "relative_path": "chemical/unlabeled/chem_explreal_explosion_dynamite_0408_033_stereo_pse_det_dlpzc.wav",
+      "category": "chemical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 12.2440589569161,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_unlabeled_chem_frwkcomr_fireworks_distant_single_blasts_explosions_deep_pse_gen_wrcqp.wav",
+      "filename": "chem_frwkcomr_fireworks_distant_single_blasts_explosions_deep_pse_gen_wrcqp.wav",
+      "path": "data/audio/chemical/unlabeled/chem_frwkcomr_fireworks_distant_single_blasts_explosions_deep_pse_gen_wrcqp.wav",
+      "relative_path": "chemical/unlabeled/chem_frwkcomr_fireworks_distant_single_blasts_explosions_deep_pse_gen_wrcqp.wav",
+      "category": "chemical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 2.4215419501133786,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_unlabeled_chem_explreal_grenade_explosion_pse_oe_6pqyv.wav",
+      "filename": "chem_explreal_grenade_explosion_pse_oe_6pqyv.wav",
+      "path": "data/audio/chemical/unlabeled/chem_explreal_grenade_explosion_pse_oe_6pqyv.wav",
+      "relative_path": "chemical/unlabeled/chem_explreal_grenade_explosion_pse_oe_6pqyv.wav",
+      "category": "chemical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 2.56,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_unlabeled_chem_explreal_explosion_dynamite_0408_031_pse_det_xmapt(3).wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_031_pse_det_xmapt(3).wav",
+      "path": "data/audio/chemical/unlabeled/chem_explreal_explosion_dynamite_0408_031_pse_det_xmapt(3).wav",
+      "relative_path": "chemical/unlabeled/chem_explreal_explosion_dynamite_0408_031_pse_det_xmapt(3).wav",
+      "category": "chemical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 12.67233560090703,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_unlabeled_chem_explreal_explosion_dynamite_0408_037_stereo_pse_det_nubsd.wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_037_stereo_pse_det_nubsd.wav",
+      "path": "data/audio/chemical/unlabeled/chem_explreal_explosion_dynamite_0408_037_stereo_pse_det_nubsd.wav",
+      "relative_path": "chemical/unlabeled/chem_explreal_explosion_dynamite_0408_037_stereo_pse_det_nubsd.wav",
+      "category": "chemical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 9.126054421768707,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_unlabeled_chem_explreal_explosion_dynamite_0408_031_stereo_pse_det_hld3k(6).wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_031_stereo_pse_det_hld3k(6).wav",
+      "path": "data/audio/chemical/unlabeled/chem_explreal_explosion_dynamite_0408_031_stereo_pse_det_hld3k(6).wav",
+      "relative_path": "chemical/unlabeled/chem_explreal_explosion_dynamite_0408_031_stereo_pse_det_hld3k(6).wav",
+      "category": "chemical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 6.96530612244898,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_unlabeled_chem_explreal_explosion_dynamite_0408_031_pse_det_xmapt(2).wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_031_pse_det_xmapt(2).wav",
+      "path": "data/audio/chemical/unlabeled/chem_explreal_explosion_dynamite_0408_031_pse_det_xmapt(2).wav",
+      "relative_path": "chemical/unlabeled/chem_explreal_explosion_dynamite_0408_031_pse_det_xmapt(2).wav",
+      "category": "chemical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 8.117528344671202,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_unlabeled_chem_frwkcomr_fireworks_distant_single_blasts_explosions_deep_pse_gen_5rjfr.wav",
+      "filename": "chem_frwkcomr_fireworks_distant_single_blasts_explosions_deep_pse_gen_5rjfr.wav",
+      "path": "data/audio/chemical/unlabeled/chem_frwkcomr_fireworks_distant_single_blasts_explosions_deep_pse_gen_5rjfr.wav",
+      "relative_path": "chemical/unlabeled/chem_frwkcomr_fireworks_distant_single_blasts_explosions_deep_pse_gen_5rjfr.wav",
+      "category": "chemical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 2.079501133786848,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_unlabeled_chem_explreal_explosion_dynamite_0408_033_stereo_pse_det_dlpzc(3).wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_033_stereo_pse_det_dlpzc(3).wav",
+      "path": "data/audio/chemical/unlabeled/chem_explreal_explosion_dynamite_0408_033_stereo_pse_det_dlpzc(3).wav",
+      "relative_path": "chemical/unlabeled/chem_explreal_explosion_dynamite_0408_033_stereo_pse_det_dlpzc(3).wav",
+      "category": "chemical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 16.142380952380954,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_unlabeled_chem_explreal_explosion_dynamite_0408_031_pse_det_xmapt(5).wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_031_pse_det_xmapt(5).wav",
+      "path": "data/audio/chemical/unlabeled/chem_explreal_explosion_dynamite_0408_031_pse_det_xmapt(5).wav",
+      "relative_path": "chemical/unlabeled/chem_explreal_explosion_dynamite_0408_031_pse_det_xmapt(5).wav",
+      "category": "chemical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 11.093945578231292,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_unlabeled_chem_explreal_grenade_explosion_pse_os_qzlql.wav",
+      "filename": "chem_explreal_grenade_explosion_pse_os_qzlql.wav",
+      "path": "data/audio/chemical/unlabeled/chem_explreal_grenade_explosion_pse_os_qzlql.wav",
+      "relative_path": "chemical/unlabeled/chem_explreal_grenade_explosion_pse_os_qzlql.wav",
+      "category": "chemical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 1.9,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_unlabeled_chem_frwkcomr_fireworks_distant_single_blasts_explosions_deep_pse_gen_ywk3v.wav",
+      "filename": "chem_frwkcomr_fireworks_distant_single_blasts_explosions_deep_pse_gen_ywk3v.wav",
+      "path": "data/audio/chemical/unlabeled/chem_frwkcomr_fireworks_distant_single_blasts_explosions_deep_pse_gen_ywk3v.wav",
+      "relative_path": "chemical/unlabeled/chem_frwkcomr_fireworks_distant_single_blasts_explosions_deep_pse_gen_ywk3v.wav",
+      "category": "chemical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 6.342471655328798,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_unlabeled_chem_frwkcomr_fireworks_distant_single_blast_explosions_boom_pse_gen_ph1oy.wav",
+      "filename": "chem_frwkcomr_fireworks_distant_single_blast_explosions_boom_pse_gen_ph1oy.wav",
+      "path": "data/audio/chemical/unlabeled/chem_frwkcomr_fireworks_distant_single_blast_explosions_boom_pse_gen_ph1oy.wav",
+      "relative_path": "chemical/unlabeled/chem_frwkcomr_fireworks_distant_single_blast_explosions_boom_pse_gen_ph1oy.wav",
+      "category": "chemical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 3.35,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_unlabeled_chem_explreal_explosion_dynamite_0408_032_stereo_pse_det_dq5ha.wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_032_stereo_pse_det_dq5ha.wav",
+      "path": "data/audio/chemical/unlabeled/chem_explreal_explosion_dynamite_0408_032_stereo_pse_det_dq5ha.wav",
+      "relative_path": "chemical/unlabeled/chem_explreal_explosion_dynamite_0408_032_stereo_pse_det_dq5ha.wav",
+      "category": "chemical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 13.662675736961452,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_unlabeled_chem_frwkcomr_fireworks_distant_single_blasts_explosions_deep_pse_gen_bo2l1.wav",
+      "filename": "chem_frwkcomr_fireworks_distant_single_blasts_explosions_deep_pse_gen_bo2l1.wav",
+      "path": "data/audio/chemical/unlabeled/chem_frwkcomr_fireworks_distant_single_blasts_explosions_deep_pse_gen_bo2l1.wav",
+      "relative_path": "chemical/unlabeled/chem_frwkcomr_fireworks_distant_single_blasts_explosions_deep_pse_gen_bo2l1.wav",
+      "category": "chemical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 3.7256689342403626,
+      "sample_rate": 44100
+    },
+    {
+      "id": "chemical_unlabeled_chem_explreal_explosion_dynamite_0408_031_pse_det_xmapt(4).wav",
+      "filename": "chem_explreal_explosion_dynamite_0408_031_pse_det_xmapt(4).wav",
+      "path": "data/audio/chemical/unlabeled/chem_explreal_explosion_dynamite_0408_031_pse_det_xmapt(4).wav",
+      "relative_path": "chemical/unlabeled/chem_explreal_explosion_dynamite_0408_031_pse_det_xmapt(4).wav",
+      "category": "chemical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 11.635102040816326,
+      "sample_rate": 44100
+    },
+    {
+      "id": "electrical_labeled_elec_electric_swoosh_2.wav",
+      "filename": "elec_electric_swoosh_2.wav",
+      "path": "data/audio/electrical/labeled/elec_electric_swoosh_2.wav",
+      "relative_path": "electrical/labeled/elec_electric_swoosh_2.wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 3.235578231292517,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.47967419895007
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.47967419895007,
+            "end": 0.74543963350348
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.74543963350348,
+            "end": 3.23557823129252
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.14824991536627272,
+        "shock": 0.08213846662185158,
+        "roar": 0.7696116180118766
+      }
+    },
+    {
+      "id": "electrical_labeled_elec_electric_expl_paralyze_game.wav",
+      "filename": "elec_electric_expl_paralyze_game.wav",
+      "path": "data/audio/electrical/labeled/elec_electric_expl_paralyze_game.wav",
+      "relative_path": "electrical/labeled/elec_electric_expl_paralyze_game.wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 4.704557823129251,
+      "sample_rate": 44100,
+      "segments": {
+        "shock": [
+          {
+            "start": 0.0,
+            "end": 0.24067648017918
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.24067648017918,
+            "end": 4.70455782312925
+          }
+        ]
+      },
+      "coverage": {
+        "shock": 0.05115815114354218,
+        "roar": 0.9488418488564577
+      }
+    },
+    {
+      "id": "electrical_labeled_elec_electric_detonations_long_reverb_4.wav",
+      "filename": "elec_electric_detonations_long_reverb_4.wav",
+      "path": "data/audio/electrical/labeled/elec_electric_detonations_long_reverb_4.wav",
+      "relative_path": "electrical/labeled/elec_electric_detonations_long_reverb_4.wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 10.0,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.10103892699037
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.10103892699037,
+            "end": 0.28569434542426
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.28569434542426,
+            "end": 10.0
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.010103892699037,
+        "shock": 0.018465541843389,
+        "roar": 0.9714305654575741
+      }
+    },
+    {
+      "id": "electrical_labeled_elec_eleczap_powerline_zaps_pse_os_zyllb.wav",
+      "filename": "elec_eleczap_powerline_zaps_pse_os_zyllb.wav",
+      "path": "data/audio/electrical/labeled/elec_eleczap_powerline_zaps_pse_os_zyllb.wav",
+      "relative_path": "electrical/labeled/elec_eleczap_powerline_zaps_pse_os_zyllb.wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 1.200408163265306,
+      "sample_rate": 44100
+    },
+    {
+      "id": "electrical_labeled_elec_electric_midlength_sparks_zaps_mult.wav",
+      "filename": "elec_electric_midlength_sparks_zaps_mult.wav",
+      "path": "data/audio/electrical/labeled/elec_electric_midlength_sparks_zaps_mult.wav",
+      "relative_path": "electrical/labeled/elec_electric_midlength_sparks_zaps_mult.wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 2.0557596371882085,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.04547983463694
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.04547983463694,
+            "end": 0.15469299016604
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.15469299016604,
+            "end": 2.05575963718821
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.0221231285089076,
+        "shock": 0.05312544985973053,
+        "roar": 0.9247514216313625
+      }
+    },
+    {
+      "id": "electrical_labeled_elec_electric_swoosh_1.wav",
+      "filename": "elec_electric_swoosh_1.wav",
+      "path": "data/audio/electrical/labeled/elec_electric_swoosh_1.wav",
+      "relative_path": "electrical/labeled/elec_electric_swoosh_1.wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 4.341337868480726,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 1.18261891878804
+          }
+        ],
+        "shock": [
+          {
+            "start": 1.18261891878804,
+            "end": 1.52187308952512
+          }
+        ],
+        "roar": [
+          {
+            "start": 1.52187308952512,
+            "end": 4.34133786848073
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.27240886441347256,
+        "shock": 0.07814507440209988,
+        "roar": 0.6494460611844286
+      }
+    },
+    {
+      "id": "electrical_labeled_elec_eleczap_powerline_zaps_pse_os_zyllb(3).wav",
+      "filename": "elec_eleczap_powerline_zaps_pse_os_zyllb(3).wav",
+      "path": "data/audio/electrical/labeled/elec_eleczap_powerline_zaps_pse_os_zyllb(3).wav",
+      "relative_path": "electrical/labeled/elec_eleczap_powerline_zaps_pse_os_zyllb(3).wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 1.3337868480725623,
+      "sample_rate": 44100
+    },
+    {
+      "id": "electrical_labeled_elec_electric_detonations_long_reverb_1.wav",
+      "filename": "elec_electric_detonations_long_reverb_1.wav",
+      "path": "data/audio/electrical/labeled/elec_electric_detonations_long_reverb_1.wav",
+      "relative_path": "electrical/labeled/elec_electric_detonations_long_reverb_1.wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 8.0,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.24743816051107
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.24743816051107,
+            "end": 0.38766896463258
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.38766896463258,
+            "end": 8.0
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.03092977006388375,
+        "shock": 0.017528850515188748,
+        "roar": 0.9515413794209275
+      }
+    },
+    {
+      "id": "electrical_labeled_elec_electric_detonations_long_reverb_2.wav",
+      "filename": "elec_electric_detonations_long_reverb_2.wav",
+      "path": "data/audio/electrical/labeled/elec_electric_detonations_long_reverb_2.wav",
+      "relative_path": "electrical/labeled/elec_electric_detonations_long_reverb_2.wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 8.0,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.26879025397029
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.26879025397029,
+            "end": 0.46126049924268
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.46126049924268,
+            "end": 8.0
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.03359878174628625,
+        "shock": 0.024058780659048748,
+        "roar": 0.942342437594665
+      }
+    },
+    {
+      "id": "electrical_labeled_elec_electric_detonations_long_reverb_3.wav",
+      "filename": "elec_electric_detonations_long_reverb_3.wav",
+      "path": "data/audio/electrical/labeled/elec_electric_detonations_long_reverb_3.wav",
+      "relative_path": "electrical/labeled/elec_electric_detonations_long_reverb_3.wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 10.0,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.09418233603302
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.09418233603302,
+            "end": 0.19037087146483
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.19037087146483,
+            "end": 10.0
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.009418233603302,
+        "shock": 0.009618853543181,
+        "roar": 0.9809629128535169
+      }
+    },
+    {
+      "id": "electrical_labeled_elec_foodcook_sizzle_short_fuse_burn_pse_oe_qu3xi.wav",
+      "filename": "elec_foodcook_sizzle_short_fuse_burn_pse_oe_qu3xi.wav",
+      "path": "data/audio/electrical/labeled/elec_foodcook_sizzle_short_fuse_burn_pse_oe_qu3xi.wav",
+      "relative_path": "electrical/labeled/elec_foodcook_sizzle_short_fuse_burn_pse_oe_qu3xi.wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 5.05,
+      "sample_rate": 44100
+    },
+    {
+      "id": "electrical_labeled_elec_dsgnstngr_stinger_riser_w_impact_mr_sparky_pse_int_5ugyo(3).wav",
+      "filename": "elec_dsgnstngr_stinger_riser_w_impact_mr_sparky_pse_int_5ugyo(3).wav",
+      "path": "data/audio/electrical/labeled/elec_dsgnstngr_stinger_riser_w_impact_mr_sparky_pse_int_5ugyo(3).wav",
+      "relative_path": "electrical/labeled/elec_dsgnstngr_stinger_riser_w_impact_mr_sparky_pse_int_5ugyo(3).wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 9.301043083900227,
+      "sample_rate": 44100
+    },
+    {
+      "id": "electrical_labeled_elec_dsgnstngr_stinger_riser_w_impact_mr_sparky_pse_int_5ugyo(2).wav",
+      "filename": "elec_dsgnstngr_stinger_riser_w_impact_mr_sparky_pse_int_5ugyo(2).wav",
+      "path": "data/audio/electrical/labeled/elec_dsgnstngr_stinger_riser_w_impact_mr_sparky_pse_int_5ugyo(2).wav",
+      "relative_path": "electrical/labeled/elec_dsgnstngr_stinger_riser_w_impact_mr_sparky_pse_int_5ugyo(2).wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 10.921360544217688,
+      "sample_rate": 44100
+    },
+    {
+      "id": "electrical_labeled_elec_electric_buzz_zap_shock_spark.wav",
+      "filename": "elec_electric_buzz_zap_shock_spark.wav",
+      "path": "data/audio/electrical/labeled/elec_electric_buzz_zap_shock_spark.wav",
+      "relative_path": "electrical/labeled/elec_electric_buzz_zap_shock_spark.wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 2.0557596371882085,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.87922440773489
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.87922440773489,
+            "end": 1.05587611113002
+          }
+        ],
+        "roar": [
+          {
+            "start": 1.05587611113002,
+            "end": 2.05575963718821
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.42768833079019897,
+        "shock": 0.08593013511868904,
+        "roar": 0.4863815340911126
+      }
+    },
+    {
+      "id": "electrical_labeled_elec_elecsprk_electric_explosions_arc_zap_whip_snap_01_pse_kcv1_kozhj.wav",
+      "filename": "elec_elecsprk_electric_explosions_arc_zap_whip_snap_01_pse_kcv1_kozhj.wav",
+      "path": "data/audio/electrical/labeled/elec_elecsprk_electric_explosions_arc_zap_whip_snap_01_pse_kcv1_kozhj.wav",
+      "relative_path": "electrical/labeled/elec_elecsprk_electric_explosions_arc_zap_whip_snap_01_pse_kcv1_kozhj.wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 1.8754195011337869,
+      "sample_rate": 44100
+    },
+    {
+      "id": "electrical_labeled_elec_sizzling_energy_lightning_whoosh_4.wav",
+      "filename": "elec_sizzling_energy_lightning_whoosh_4.wav",
+      "path": "data/audio/electrical/labeled/elec_sizzling_energy_lightning_whoosh_4.wav",
+      "relative_path": "electrical/labeled/elec_sizzling_energy_lightning_whoosh_4.wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 15.559115646258503,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.60467284257657
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.60467284257657,
+            "end": 2.2055479335911
+          }
+        ],
+        "roar": [
+          {
+            "start": 2.2055479335911,
+            "end": 15.5591156462585
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.03886293130817981,
+        "shock": 0.10288985103080021,
+        "roar": 0.8582472176610197
+      }
+    },
+    {
+      "id": "electrical_labeled_elec_sizzling_energy_lightning_whoosh_5.wav",
+      "filename": "elec_sizzling_energy_lightning_whoosh_5.wav",
+      "path": "data/audio/electrical/labeled/elec_sizzling_energy_lightning_whoosh_5.wav",
+      "relative_path": "electrical/labeled/elec_sizzling_energy_lightning_whoosh_5.wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 15.559115646258503,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.48793224175249
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.48793224175249,
+            "end": 1.09374067330976
+          }
+        ],
+        "roar": [
+          {
+            "start": 1.09374067330976,
+            "end": 15.5591156462585
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.03135989556513277,
+        "shock": 0.0389359167532731,
+        "roar": 0.9297041876815939
+      }
+    },
+    {
+      "id": "electrical_labeled_elec_electrical_explosions_blast_light_6.wav",
+      "filename": "elec_electrical_explosions_blast_light_6.wav",
+      "path": "data/audio/electrical/labeled/elec_electrical_explosions_blast_light_6.wav",
+      "relative_path": "electrical/labeled/elec_electrical_explosions_blast_light_6.wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 3.8505215419501133,
+      "sample_rate": 44100,
+      "segments": {
+        "shock": [
+          {
+            "start": 0.55121096097229,
+            "end": 1.25942497686404
+          }
+        ],
+        "roar": [
+          {
+            "start": 1.25942497686404,
+            "end": 3.85052154195011
+          }
+        ]
+      },
+      "coverage": {
+        "shock": 0.18392677671738772,
+        "roar": 0.6729209372956262
+      }
+    },
+    {
+      "id": "electrical_labeled_elec_electric_expl_sparks.wav",
+      "filename": "elec_electric_expl_sparks.wav",
+      "path": "data/audio/electrical/labeled/elec_electric_expl_sparks.wav",
+      "relative_path": "electrical/labeled/elec_electric_expl_sparks.wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 2.0557596371882085,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.15223743670764
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.15223743670764,
+            "end": 0.2466631885896
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.2466631885896,
+            "end": 2.05575963718821
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.0740541033852891,
+        "shock": 0.04593229197315696,
+        "roar": 0.8800136046415545
+      }
+    },
+    {
+      "id": "electrical_labeled_elec_electrical_explosions_blast_light_4.wav",
+      "filename": "elec_electrical_explosions_blast_light_4.wav",
+      "path": "data/audio/electrical/labeled/elec_electrical_explosions_blast_light_4.wav",
+      "relative_path": "electrical/labeled/elec_electrical_explosions_blast_light_4.wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 4.009206349206349,
+      "sample_rate": 44100,
+      "segments": {
+        "shock": [
+          {
+            "start": 0.16583393041255,
+            "end": 0.65499187609484
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.65499187609484,
+            "end": 4.00920634920635
+          }
+        ]
+      },
+      "coverage": {
+        "shock": 0.12200867280855282,
+        "roar": 0.8366280457915319
+      }
+    },
+    {
+      "id": "electrical_labeled_elec_sizzling_energy_lightning_whoosh_6.wav",
+      "filename": "elec_sizzling_energy_lightning_whoosh_6.wav",
+      "path": "data/audio/electrical/labeled/elec_sizzling_energy_lightning_whoosh_6.wav",
+      "relative_path": "electrical/labeled/elec_sizzling_energy_lightning_whoosh_6.wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 15.559115646258503,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 1.53200964788071
+          }
+        ],
+        "shock": [
+          {
+            "start": 1.53200964788071,
+            "end": 3.91789966832643
+          }
+        ],
+        "roar": [
+          {
+            "start": 3.91789966832643,
+            "end": 15.5591156462585
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.09846379978858966,
+        "shock": 0.15334354951076248,
+        "roar": 0.7481926507006477
+      }
+    },
+    {
+      "id": "electrical_labeled_elec_electrical_explosions_blast_light_5.wav",
+      "filename": "elec_electrical_explosions_blast_light_5.wav",
+      "path": "data/audio/electrical/labeled/elec_electrical_explosions_blast_light_5.wav",
+      "relative_path": "electrical/labeled/elec_electrical_explosions_blast_light_5.wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 3.402154195011338,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.7842149309093
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.7842149309093,
+            "end": 1.1876176731466
+          }
+        ],
+        "roar": [
+          {
+            "start": 1.1876176731466,
+            "end": 3.40215419501134
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.2305054050928125,
+        "shock": 0.11857273924527563,
+        "roar": 0.6509218556619123
+      }
+    },
+    {
+      "id": "electrical_labeled_elec_electrical_explosions_blast_light_1.wav",
+      "filename": "elec_electrical_explosions_blast_light_1.wav",
+      "path": "data/audio/electrical/labeled/elec_electrical_explosions_blast_light_1.wav",
+      "relative_path": "electrical/labeled/elec_electrical_explosions_blast_light_1.wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 4.287301587301587,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.39901293489027
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.39901293489027,
+            "end": 0.65820939206756
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.65820939206756,
+            "end": 4.28730158730159
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.0930685483083562,
+        "shock": 0.060456781940648914,
+        "roar": 0.8464746697509955
+      }
+    },
+    {
+      "id": "electrical_labeled_elec_sizzling_energy_lightning_whoosh_2.wav",
+      "filename": "elec_sizzling_energy_lightning_whoosh_2.wav",
+      "path": "data/audio/electrical/labeled/elec_sizzling_energy_lightning_whoosh_2.wav",
+      "relative_path": "electrical/labeled/elec_sizzling_energy_lightning_whoosh_2.wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 15.559115646258503,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 1.32262525143389
+          }
+        ],
+        "shock": [
+          {
+            "start": 1.32262525143389,
+            "end": 2.86186855517094
+          }
+        ],
+        "roar": [
+          {
+            "start": 2.86186855517094,
+            "end": 15.5591156462585
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.08500645419085509,
+        "shock": 0.09892871412053497,
+        "roar": 0.8160648316886098
+      }
+    },
+    {
+      "id": "electrical_labeled_elec_elecsprk_electric_explosions_arc_zap_whip_snap_02_pse_kcv1_qfpd2.wav",
+      "filename": "elec_elecsprk_electric_explosions_arc_zap_whip_snap_02_pse_kcv1_qfpd2.wav",
+      "path": "data/audio/electrical/labeled/elec_elecsprk_electric_explosions_arc_zap_whip_snap_02_pse_kcv1_qfpd2.wav",
+      "relative_path": "electrical/labeled/elec_elecsprk_electric_explosions_arc_zap_whip_snap_02_pse_kcv1_qfpd2.wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 2.1768027210884355,
+      "sample_rate": 44100
+    },
+    {
+      "id": "electrical_labeled_elec_sizzling_energy_lightning_whoosh_3.wav",
+      "filename": "elec_sizzling_energy_lightning_whoosh_3.wav",
+      "path": "data/audio/electrical/labeled/elec_sizzling_energy_lightning_whoosh_3.wav",
+      "relative_path": "electrical/labeled/elec_sizzling_energy_lightning_whoosh_3.wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 15.559115646258503,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.47550549904309
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.47550549904309,
+            "end": 0.89137970562685
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.89137970562685,
+            "end": 15.5591156462585
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.030561216321920884,
+        "shock": 0.026728653224180204,
+        "roar": 0.9427101304538987
+      }
+    },
+    {
+      "id": "electrical_labeled_elec_elecsprk_electric_explosions_arc_zap_whip_snap_02_pse_kcv1_qfpd2(2).wav",
+      "filename": "elec_elecsprk_electric_explosions_arc_zap_whip_snap_02_pse_kcv1_qfpd2(2).wav",
+      "path": "data/audio/electrical/labeled/elec_elecsprk_electric_explosions_arc_zap_whip_snap_02_pse_kcv1_qfpd2(2).wav",
+      "relative_path": "electrical/labeled/elec_elecsprk_electric_explosions_arc_zap_whip_snap_02_pse_kcv1_qfpd2(2).wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 0.7417233560090702,
+      "sample_rate": 44100
+    },
+    {
+      "id": "electrical_labeled_elec_electrical_explosions_blast_light_2.wav",
+      "filename": "elec_electrical_explosions_blast_light_2.wav",
+      "path": "data/audio/electrical/labeled/elec_electrical_explosions_blast_light_2.wav",
+      "relative_path": "electrical/labeled/elec_electrical_explosions_blast_light_2.wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 5.718344671201814,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.57746988899561
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.57746988899561,
+            "end": 1.4887067780529
+          }
+        ],
+        "roar": [
+          {
+            "start": 1.4887067780529,
+            "end": 5.71834467120181
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.10098549881118729,
+        "shock": 0.1593532641791207,
+        "roar": 0.7396612370096912
+      }
+    },
+    {
+      "id": "electrical_labeled_elec_sizzling_energy_lightning_whoosh_1.wav",
+      "filename": "elec_sizzling_energy_lightning_whoosh_1.wav",
+      "path": "data/audio/electrical/labeled/elec_sizzling_energy_lightning_whoosh_1.wav",
+      "relative_path": "electrical/labeled/elec_sizzling_energy_lightning_whoosh_1.wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 15.559115646258503,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 1.46286351979453
+          }
+        ],
+        "shock": [
+          {
+            "start": 1.46286351979453,
+            "end": 2.96517499561236
+          }
+        ],
+        "roar": [
+          {
+            "start": 2.96517499561236,
+            "end": 15.5591156462585
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.09401970864239348,
+        "shock": 0.09655506842248392,
+        "roar": 0.8094252229351224
+      }
+    },
+    {
+      "id": "electrical_labeled_elec_electrical_explosions_blast_light_3.wav",
+      "filename": "elec_electrical_explosions_blast_light_3.wav",
+      "path": "data/audio/electrical/labeled/elec_electrical_explosions_blast_light_3.wav",
+      "relative_path": "electrical/labeled/elec_electrical_explosions_blast_light_3.wav",
+      "category": "electrical",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 4.3513605442176875,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.50912606660664
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.50912606660664,
+            "end": 1.0016107820197
+          }
+        ],
+        "roar": [
+          {
+            "start": 1.0016107820197,
+            "end": 4.35136054421769
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.11700387992054415,
+        "shock": 0.11317947809852234,
+        "roar": 0.7698166419809341
+      }
+    },
+    {
+      "id": "electrical_unlabeled_elec_eleczap_powerline_zaps_pse_os_zyllb(2).wav",
+      "filename": "elec_eleczap_powerline_zaps_pse_os_zyllb(2).wav",
+      "path": "data/audio/electrical/unlabeled/elec_eleczap_powerline_zaps_pse_os_zyllb(2).wav",
+      "relative_path": "electrical/unlabeled/elec_eleczap_powerline_zaps_pse_os_zyllb(2).wav",
+      "category": "electrical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 1.1003854875283448,
+      "sample_rate": 44100
+    },
+    {
+      "id": "electrical_unlabeled_elec_dsgnstngr_stinger_riser_w_impact_mr_sparky_pse_int_5ugyo.wav",
+      "filename": "elec_dsgnstngr_stinger_riser_w_impact_mr_sparky_pse_int_5ugyo.wav",
+      "path": "data/audio/electrical/unlabeled/elec_dsgnstngr_stinger_riser_w_impact_mr_sparky_pse_int_5ugyo.wav",
+      "relative_path": "electrical/unlabeled/elec_dsgnstngr_stinger_riser_w_impact_mr_sparky_pse_int_5ugyo.wav",
+      "category": "electrical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 9.237913832199547,
+      "sample_rate": 44100
+    },
+    {
+      "id": "electrical_unlabeled_elec_eleczap_powerline_zaps_pse_os_zyllb(4).wav",
+      "filename": "elec_eleczap_powerline_zaps_pse_os_zyllb(4).wav",
+      "path": "data/audio/electrical/unlabeled/elec_eleczap_powerline_zaps_pse_os_zyllb(4).wav",
+      "relative_path": "electrical/unlabeled/elec_eleczap_powerline_zaps_pse_os_zyllb(4).wav",
+      "category": "electrical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 1.7673015873015874,
+      "sample_rate": 44100
+    },
+    {
+      "id": "electrical_unlabeled_elec_toonmisc_droid_short_circuit_pse_gen3_wjl5i(2).wav",
+      "filename": "elec_toonmisc_droid_short_circuit_pse_gen3_wjl5i(2).wav",
+      "path": "data/audio/electrical/unlabeled/elec_toonmisc_droid_short_circuit_pse_gen3_wjl5i(2).wav",
+      "relative_path": "electrical/unlabeled/elec_toonmisc_droid_short_circuit_pse_gen3_wjl5i(2).wav",
+      "category": "electrical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 0.8265986394557823,
+      "sample_rate": 44100
+    },
+    {
+      "id": "electrical_unlabeled_elec_eleczap_powerline_zaps_pse_os_zyllb(5).wav",
+      "filename": "elec_eleczap_powerline_zaps_pse_os_zyllb(5).wav",
+      "path": "data/audio/electrical/unlabeled/elec_eleczap_powerline_zaps_pse_os_zyllb(5).wav",
+      "relative_path": "electrical/unlabeled/elec_eleczap_powerline_zaps_pse_os_zyllb(5).wav",
+      "category": "electrical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 1.7339455782312925,
+      "sample_rate": 44100
+    },
+    {
+      "id": "electrical_unlabeled_elec_toonmisc_droid_short_circuit_pse_gen3_wjl5i.wav",
+      "filename": "elec_toonmisc_droid_short_circuit_pse_gen3_wjl5i.wav",
+      "path": "data/audio/electrical/unlabeled/elec_toonmisc_droid_short_circuit_pse_gen3_wjl5i.wav",
+      "relative_path": "electrical/unlabeled/elec_toonmisc_droid_short_circuit_pse_gen3_wjl5i.wav",
+      "category": "electrical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 0.8367346938775511,
+      "sample_rate": 44100
+    },
+    {
+      "id": "electrical_unlabeled_elec_elecsprk_electric_explosions_arc_zap_whip_snap_01_pse_kcv1_kozhj(2).wav",
+      "filename": "elec_elecsprk_electric_explosions_arc_zap_whip_snap_01_pse_kcv1_kozhj(2).wav",
+      "path": "data/audio/electrical/unlabeled/elec_elecsprk_electric_explosions_arc_zap_whip_snap_01_pse_kcv1_kozhj(2).wav",
+      "relative_path": "electrical/unlabeled/elec_elecsprk_electric_explosions_arc_zap_whip_snap_01_pse_kcv1_kozhj(2).wav",
+      "category": "electrical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 1.9796145124716553,
+      "sample_rate": 44100
+    },
+    {
+      "id": "electrical_unlabeled_elec_electricity_long_whoosh_1.wav",
+      "filename": "elec_electricity_long_whoosh_1.wav",
+      "path": "data/audio/electrical/unlabeled/elec_electricity_long_whoosh_1.wav",
+      "relative_path": "electrical/unlabeled/elec_electricity_long_whoosh_1.wav",
+      "category": "electrical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 9.0,
+      "sample_rate": 44100
+    },
+    {
+      "id": "electrical_unlabeled_elec_electricity_long_whoosh_3.wav",
+      "filename": "elec_electricity_long_whoosh_3.wav",
+      "path": "data/audio/electrical/unlabeled/elec_electricity_long_whoosh_3.wav",
+      "relative_path": "electrical/unlabeled/elec_electricity_long_whoosh_3.wav",
+      "category": "electrical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 9.5,
+      "sample_rate": 44100
+    },
+    {
+      "id": "electrical_unlabeled_elec_electricity_long_whoosh_2.wav",
+      "filename": "elec_electricity_long_whoosh_2.wav",
+      "path": "data/audio/electrical/unlabeled/elec_electricity_long_whoosh_2.wav",
+      "relative_path": "electrical/unlabeled/elec_electricity_long_whoosh_2.wav",
+      "category": "electrical",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 6.0,
+      "sample_rate": 44100
+    },
+    {
+      "id": "fire_labeled_fire_firewhsh_fire_whoosh_explosive_burning_huge_booms_01_pse_kcv1_yk5il.wav",
+      "filename": "fire_firewhsh_fire_whoosh_explosive_burning_huge_booms_01_pse_kcv1_yk5il.wav",
+      "path": "data/audio/fire/labeled/fire_firewhsh_fire_whoosh_explosive_burning_huge_booms_01_pse_kcv1_yk5il.wav",
+      "relative_path": "fire/labeled/fire_firewhsh_fire_whoosh_explosive_burning_huge_booms_01_pse_kcv1_yk5il.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 12.59485260770975,
+      "sample_rate": 44100
+    },
+    {
+      "id": "fire_labeled_fire_fireball.wav",
+      "filename": "fire_fireball.wav",
+      "path": "data/audio/fire/labeled/fire_fireball.wav",
+      "relative_path": "fire/labeled/fire_fireball.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 3.25,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.95
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.95,
+            "end": 1.1
+          }
+        ],
+        "roar": [
+          {
+            "start": 1.1,
+            "end": 3.25
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.29230769230769227,
+        "shock": 0.0461538461538462,
+        "roar": 0.6615384615384615
+      }
+    },
+    {
+      "id": "fire_labeled_fire_debris.wav",
+      "filename": "fire_debris.wav",
+      "path": "data/audio/fire/labeled/fire_debris.wav",
+      "relative_path": "fire/labeled/fire_debris.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 2.0,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.20359743395774
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.20359743395774,
+            "end": 0.3732394328854
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.3732394328854,
+            "end": 2.0
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.10179871697887,
+        "shock": 0.08482099946383001,
+        "roar": 0.8133802835573
+      }
+    },
+    {
+      "id": "fire_labeled_fire_heavy_whoosh_impact.wav",
+      "filename": "fire_heavy_whoosh_impact.wav",
+      "path": "data/audio/fire/labeled/fire_heavy_whoosh_impact.wav",
+      "relative_path": "fire/labeled/fire_heavy_whoosh_impact.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 4.5,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 1.23404783659941
+          }
+        ],
+        "shock": [
+          {
+            "start": 1.23404783659941,
+            "end": 1.80340317641854
+          }
+        ],
+        "roar": [
+          {
+            "start": 1.80340317641854,
+            "end": 4.5
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.2742328525776467,
+        "shock": 0.12652340884869556,
+        "roar": 0.5992437385736578
+      }
+    },
+    {
+      "id": "fire_labeled_fire_firewhsh_fire_whooshes_fireball_bys_pse_gen3_mg3pq(2).wav",
+      "filename": "fire_firewhsh_fire_whooshes_fireball_bys_pse_gen3_mg3pq(2).wav",
+      "path": "data/audio/fire/labeled/fire_firewhsh_fire_whooshes_fireball_bys_pse_gen3_mg3pq(2).wav",
+      "relative_path": "fire/labeled/fire_firewhsh_fire_whooshes_fireball_bys_pse_gen3_mg3pq(2).wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 2.883877551020408,
+      "sample_rate": 44100
+    },
+    {
+      "id": "fire_labeled_fire_car_explosion_sirens_1.wav",
+      "filename": "fire_car_explosion_sirens_1.wav",
+      "path": "data/audio/fire/labeled/fire_car_explosion_sirens_1.wav",
+      "relative_path": "fire/labeled/fire_car_explosion_sirens_1.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 11.25,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.28740630146063
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.28740630146063,
+            "end": 0.69062221926546
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.69062221926546,
+            "end": 11.25
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.025547226796500445,
+        "shock": 0.03584141491598489,
+        "roar": 0.9386113582875146
+      }
+    },
+    {
+      "id": "fire_labeled_fire_car_explosion_sirens_2.wav",
+      "filename": "fire_car_explosion_sirens_2.wav",
+      "path": "data/audio/fire/labeled/fire_car_explosion_sirens_2.wav",
+      "relative_path": "fire/labeled/fire_car_explosion_sirens_2.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 14.37498866213152,
+      "sample_rate": 44100,
+      "segments": {
+        "shock": [
+          {
+            "start": 0.0,
+            "end": 0.17138991189745
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.17138991189745,
+            "end": 14.37498866213152
+          }
+        ]
+      },
+      "coverage": {
+        "shock": 0.011922785883577619,
+        "roar": 0.9880772141164225
+      }
+    },
+    {
+      "id": "fire_labeled_fire_blast_slowrise.wav",
+      "filename": "fire_blast_slowrise.wav",
+      "path": "data/audio/fire/labeled/fire_blast_slowrise.wav",
+      "relative_path": "fire/labeled/fire_blast_slowrise.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 7.0,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 2.0
+          }
+        ],
+        "shock": [
+          {
+            "start": 2.0,
+            "end": 2.14
+          }
+        ],
+        "roar": [
+          {
+            "start": 2.14,
+            "end": 7.0
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.2857142857142857,
+        "shock": 0.020000000000000018,
+        "roar": 0.6942857142857142
+      }
+    },
+    {
+      "id": "fire_labeled_fire_explmisc_fire_explosion_pse_oe_zy7fu.wav",
+      "filename": "fire_explmisc_fire_explosion_pse_oe_zy7fu.wav",
+      "path": "data/audio/fire/labeled/fire_explmisc_fire_explosion_pse_oe_zy7fu.wav",
+      "relative_path": "fire/labeled/fire_explmisc_fire_explosion_pse_oe_zy7fu.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 8.69,
+      "sample_rate": 44100
+    },
+    {
+      "id": "fire_labeled_fire_explreal_gas_fire_explosion_pse_oe_iwpmb.wav",
+      "filename": "fire_explreal_gas_fire_explosion_pse_oe_iwpmb.wav",
+      "path": "data/audio/fire/labeled/fire_explreal_gas_fire_explosion_pse_oe_iwpmb.wav",
+      "relative_path": "fire/labeled/fire_explreal_gas_fire_explosion_pse_oe_iwpmb.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 4.634897959183673,
+      "sample_rate": 44100
+    },
+    {
+      "id": "fire_labeled_fire_crackling_debris.wav",
+      "filename": "fire_crackling_debris.wav",
+      "path": "data/audio/fire/labeled/fire_crackling_debris.wav",
+      "relative_path": "fire/labeled/fire_crackling_debris.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 8.0,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.0061452390766
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.0061452390766,
+            "end": 0.1883701895034
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.1883701895034,
+            "end": 8.0
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.000768154884575,
+        "shock": 0.02277811880335,
+        "roar": 0.9764537263120749
+      }
+    },
+    {
+      "id": "fire_labeled_fire_firewhsh_fire_whooshes_fireball_bys_pse_gen3_mg3pq.wav",
+      "filename": "fire_firewhsh_fire_whooshes_fireball_bys_pse_gen3_mg3pq.wav",
+      "path": "data/audio/fire/labeled/fire_firewhsh_fire_whooshes_fireball_bys_pse_gen3_mg3pq.wav",
+      "relative_path": "fire/labeled/fire_firewhsh_fire_whooshes_fireball_bys_pse_gen3_mg3pq.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 3.564013605442177,
+      "sample_rate": 44100
+    },
+    {
+      "id": "fire_labeled_fire_explreal_explosion_fireball_pse_os_pb4g2.wav",
+      "filename": "fire_explreal_explosion_fireball_pse_os_pb4g2.wav",
+      "path": "data/audio/fire/labeled/fire_explreal_explosion_fireball_pse_os_pb4g2.wav",
+      "relative_path": "fire/labeled/fire_explreal_explosion_fireball_pse_os_pb4g2.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 5.97,
+      "sample_rate": 44100
+    },
+    {
+      "id": "fire_labeled_fire_longroar_burning.wav",
+      "filename": "fire_longroar_burning.wav",
+      "path": "data/audio/fire/labeled/fire_longroar_burning.wav",
+      "relative_path": "fire/labeled/fire_longroar_burning.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 8.0,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.11331277917932
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.11331277917932,
+            "end": 0.45351783710938
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.45351783710938,
+            "end": 8.0
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.014164097397415,
+        "shock": 0.042525632241257494,
+        "roar": 0.9433102703613275
+      }
+    },
+    {
+      "id": "fire_labeled_fire_distant_crackle.wav",
+      "filename": "fire_distant_crackle.wav",
+      "path": "data/audio/fire/labeled/fire_distant_crackle.wav",
+      "relative_path": "fire/labeled/fire_distant_crackle.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 14.264240362811792,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.17290272637441
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.17290272637441,
+            "end": 0.51921156524163
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.51921156524163,
+            "end": 14.26424036281179
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.01212141144404602,
+        "shock": 0.024278112963525174,
+        "roar": 0.9636004755924287
+      }
+    },
+    {
+      "id": "fire_labeled_fire_bomb_doublehit.wav",
+      "filename": "fire_bomb_doublehit.wav",
+      "path": "data/audio/fire/labeled/fire_bomb_doublehit.wav",
+      "relative_path": "fire/labeled/fire_bomb_doublehit.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 3.75,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.04571948170161
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.04571948170161,
+            "end": 0.19851146061605
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.19851146061605,
+            "end": 3.75
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.012191861787096,
+        "shock": 0.04074452771051733,
+        "roar": 0.9470636105023866
+      }
+    },
+    {
+      "id": "fire_labeled_fire_big_debris_04.wav",
+      "filename": "fire_big_debris_04.wav",
+      "path": "data/audio/fire/labeled/fire_big_debris_04.wav",
+      "relative_path": "fire/labeled/fire_big_debris_04.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 9.0,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 1.02
+          }
+        ],
+        "shock": [
+          {
+            "start": 1.02,
+            "end": 1.70694049612149
+          }
+        ],
+        "roar": [
+          {
+            "start": 1.70694049612149,
+            "end": 9.0
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.11333333333333334,
+        "shock": 0.07632672179127667,
+        "roar": 0.81033994487539
+      }
+    },
+    {
+      "id": "fire_labeled_fire_big_debris_05.wav",
+      "filename": "fire_big_debris_05.wav",
+      "path": "data/audio/fire/labeled/fire_big_debris_05.wav",
+      "relative_path": "fire/labeled/fire_big_debris_05.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 9.5,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.63030023291318
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.63030023291318,
+            "end": 1.03998388091111
+          }
+        ],
+        "roar": [
+          {
+            "start": 1.03998388091111,
+            "end": 9.5
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.06634739293822949,
+        "shock": 0.04312459452609788,
+        "roar": 0.8905280125356726
+      }
+    },
+    {
+      "id": "fire_labeled_fire_blast_2.wav",
+      "filename": "fire_blast_2.wav",
+      "path": "data/audio/fire/labeled/fire_blast_2.wav",
+      "relative_path": "fire/labeled/fire_blast_2.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 5.0,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.07906411104088
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.07906411104088,
+            "end": 0.17656546387525
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.17656546387525,
+            "end": 5.0
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.015812822208176,
+        "shock": 0.019500270566874,
+        "roar": 0.96468690722495
+      }
+    },
+    {
+      "id": "fire_labeled_fire_big_debris_07.wav",
+      "filename": "fire_big_debris_07.wav",
+      "path": "data/audio/fire/labeled/fire_big_debris_07.wav",
+      "relative_path": "fire/labeled/fire_big_debris_07.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 9.0,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.61159068073679
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.61159068073679,
+            "end": 0.96210407028728
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.96210407028728,
+            "end": 9.0
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.06795452008186556,
+        "shock": 0.03894593217227666,
+        "roar": 0.8930995477458578
+      }
+    },
+    {
+      "id": "fire_labeled_fire_big_debris_06.wav",
+      "filename": "fire_big_debris_06.wav",
+      "path": "data/audio/fire/labeled/fire_big_debris_06.wav",
+      "relative_path": "fire/labeled/fire_big_debris_06.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 10.0,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 1.09667502534905
+          }
+        ],
+        "shock": [
+          {
+            "start": 1.09667502534905,
+            "end": 1.43293846006535
+          }
+        ],
+        "roar": [
+          {
+            "start": 1.43293846006535,
+            "end": 10.0
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.10966750253490501,
+        "shock": 0.03362634347163,
+        "roar": 0.8567061539934651
+      }
+    },
+    {
+      "id": "fire_labeled_fire_blast_1.wav",
+      "filename": "fire_blast_1.wav",
+      "path": "data/audio/fire/labeled/fire_blast_1.wav",
+      "relative_path": "fire/labeled/fire_blast_1.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 2.5,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.0288243083676
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.0288243083676,
+            "end": 0.17403929368537
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.17403929368537,
+            "end": 2.5
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.01152972334704,
+        "shock": 0.058085994127108,
+        "roar": 0.930384282525852
+      }
+    },
+    {
+      "id": "fire_labeled_fire_big_debris_02.wav",
+      "filename": "fire_big_debris_02.wav",
+      "path": "data/audio/fire/labeled/fire_big_debris_02.wav",
+      "relative_path": "fire/labeled/fire_big_debris_02.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 9.0,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 1.08
+          }
+        ],
+        "shock": [
+          {
+            "start": 1.08,
+            "end": 1.54524826521072
+          }
+        ],
+        "roar": [
+          {
+            "start": 1.54524826521072,
+            "end": 9.0
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.12000000000000001,
+        "shock": 0.05169425169007999,
+        "roar": 0.82830574830992
+      }
+    },
+    {
+      "id": "fire_labeled_fire_distant_2.wav",
+      "filename": "fire_distant_2.wav",
+      "path": "data/audio/fire/labeled/fire_distant_2.wav",
+      "relative_path": "fire/labeled/fire_distant_2.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 5.213650793650793,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.09668204129827
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.09668204129827,
+            "end": 0.18129648711121
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.18129648711121,
+            "end": 5.21365079365079
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.018544019368541102,
+        "shock": 0.016229404147278876,
+        "roar": 0.9652265764841794
+      }
+    },
+    {
+      "id": "fire_labeled_fire_big_debris_03.wav",
+      "filename": "fire_big_debris_03.wav",
+      "path": "data/audio/fire/labeled/fire_big_debris_03.wav",
+      "relative_path": "fire/labeled/fire_big_debris_03.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 8.5,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.47782791589418
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.47782791589418,
+            "end": 0.76631219481335
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.76631219481335,
+            "end": 8.5
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.05621504892872706,
+        "shock": 0.03393932693166706,
+        "roar": 0.9098456241396058
+      }
+    },
+    {
+      "id": "fire_labeled_fire_explosion_flame.wav",
+      "filename": "fire_explosion_flame.wav",
+      "path": "data/audio/fire/labeled/fire_explosion_flame.wav",
+      "relative_path": "fire/labeled/fire_explosion_flame.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 5.5,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.99
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.99,
+            "end": 1.72406982915021
+          }
+        ],
+        "roar": [
+          {
+            "start": 1.72406982915021,
+            "end": 5.5
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.18,
+        "shock": 0.13346724166367452,
+        "roar": 0.6865327583363254
+      }
+    },
+    {
+      "id": "fire_labeled_fire_big_debris_01.wav",
+      "filename": "fire_big_debris_01.wav",
+      "path": "data/audio/fire/labeled/fire_big_debris_01.wav",
+      "relative_path": "fire/labeled/fire_big_debris_01.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 9.0,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.49243157641146
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.49243157641146,
+            "end": 0.91189135776701
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.91189135776701,
+            "end": 9.0
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.054714619601273336,
+        "shock": 0.04660664237283889,
+        "roar": 0.8986787380258878
+      }
+    },
+    {
+      "id": "fire_labeled_fire_distant_1.wav",
+      "filename": "fire_distant_1.wav",
+      "path": "data/audio/fire/labeled/fire_distant_1.wav",
+      "relative_path": "fire/labeled/fire_distant_1.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 5.213650793650793,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.06431754690488
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.06431754690488,
+            "end": 0.25696243937257
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.25696243937257,
+            "end": 5.21365079365079
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.012336374155170918,
+        "shock": 0.036950095066262165,
+        "roar": 0.9507135307785662
+      }
+    },
+    {
+      "id": "fire_labeled_fire_explreal_explosions_pse_oe_0t5kg.wav",
+      "filename": "fire_explreal_explosions_pse_oe_0t5kg.wav",
+      "path": "data/audio/fire/labeled/fire_explreal_explosions_pse_oe_0t5kg.wav",
+      "relative_path": "fire/labeled/fire_explreal_explosions_pse_oe_0t5kg.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 5.77,
+      "sample_rate": 44100
+    },
+    {
+      "id": "fire_labeled_fire_explreal_explosions_pse_os_fcplj.wav",
+      "filename": "fire_explreal_explosions_pse_os_fcplj.wav",
+      "path": "data/audio/fire/labeled/fire_explreal_explosions_pse_os_fcplj.wav",
+      "relative_path": "fire/labeled/fire_explreal_explosions_pse_os_fcplj.wav",
+      "category": "fire",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 3.42,
+      "sample_rate": 44100
+    },
+    {
+      "id": "fire_unlabeled_fire_expldsgn_smoke_bomb_explosion_pse_oe_au2oi.wav",
+      "filename": "fire_expldsgn_smoke_bomb_explosion_pse_oe_au2oi.wav",
+      "path": "data/audio/fire/unlabeled/fire_expldsgn_smoke_bomb_explosion_pse_oe_au2oi.wav",
+      "relative_path": "fire/unlabeled/fire_expldsgn_smoke_bomb_explosion_pse_oe_au2oi.wav",
+      "category": "fire",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 3.31,
+      "sample_rate": 44100
+    },
+    {
+      "id": "fire_unlabeled_fire_explreal_explosion_whoosh_pse_os_mhlgu.wav",
+      "filename": "fire_explreal_explosion_whoosh_pse_os_mhlgu.wav",
+      "path": "data/audio/fire/unlabeled/fire_explreal_explosion_whoosh_pse_os_mhlgu.wav",
+      "relative_path": "fire/unlabeled/fire_explreal_explosion_whoosh_pse_os_mhlgu.wav",
+      "category": "fire",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 4.849977324263039,
+      "sample_rate": 44100
+    },
+    {
+      "id": "fire_unlabeled_fire_expldsgn_fireball_explosion_pse_oe_giejq.wav",
+      "filename": "fire_expldsgn_fireball_explosion_pse_oe_giejq.wav",
+      "path": "data/audio/fire/unlabeled/fire_expldsgn_fireball_explosion_pse_oe_giejq.wav",
+      "relative_path": "fire/unlabeled/fire_expldsgn_fireball_explosion_pse_oe_giejq.wav",
+      "category": "fire",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 3.57,
+      "sample_rate": 44100
+    },
+    {
+      "id": "fire_unlabeled_fire_missile_1.wav",
+      "filename": "fire_missile_1.wav",
+      "path": "data/audio/fire/unlabeled/fire_missile_1.wav",
+      "relative_path": "fire/unlabeled/fire_missile_1.wav",
+      "category": "fire",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 8.875510204081632,
+      "sample_rate": 44100
+    },
+    {
+      "id": "fire_unlabeled_fire_missile_3.wav",
+      "filename": "fire_missile_3.wav",
+      "path": "data/audio/fire/unlabeled/fire_missile_3.wav",
+      "relative_path": "fire/unlabeled/fire_missile_3.wav",
+      "category": "fire",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 4.504489795918367,
+      "sample_rate": 44100
+    },
+    {
+      "id": "fire_unlabeled_fire_missile_2.wav",
+      "filename": "fire_missile_2.wav",
+      "path": "data/audio/fire/unlabeled/fire_missile_2.wav",
+      "relative_path": "fire/unlabeled/fire_missile_2.wav",
+      "category": "fire",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 5.672335600907029,
+      "sample_rate": 44100
+    },
+    {
+      "id": "fire_unlabeled_fire_firewhsh_fire_whooshes_fireball_bys_pse_gen3_mg3pq(3).wav",
+      "filename": "fire_firewhsh_fire_whooshes_fireball_bys_pse_gen3_mg3pq(3).wav",
+      "path": "data/audio/fire/unlabeled/fire_firewhsh_fire_whooshes_fireball_bys_pse_gen3_mg3pq(3).wav",
+      "relative_path": "fire/unlabeled/fire_firewhsh_fire_whooshes_fireball_bys_pse_gen3_mg3pq(3).wav",
+      "category": "fire",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 3.0198866213151927,
+      "sample_rate": 44100
+    },
+    {
+      "id": "fire_unlabeled_fire_explmisc_fireball_explosion_pse_os_cpvwt.wav",
+      "filename": "fire_explmisc_fireball_explosion_pse_os_cpvwt.wav",
+      "path": "data/audio/fire/unlabeled/fire_explmisc_fireball_explosion_pse_os_cpvwt.wav",
+      "relative_path": "fire/unlabeled/fire_explmisc_fireball_explosion_pse_os_cpvwt.wav",
+      "category": "fire",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 2.91,
+      "sample_rate": 44100
+    },
+    {
+      "id": "fire_unlabeled_fire_wind_transition.wav",
+      "filename": "fire_wind_transition.wav",
+      "path": "data/audio/fire/unlabeled/fire_wind_transition.wav",
+      "relative_path": "fire/unlabeled/fire_wind_transition.wav",
+      "category": "fire",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 9.777777777777779,
+      "sample_rate": 44100
+    },
+    {
+      "id": "fire_unlabeled_fire_expldsgn_howitzer_shell_eject_pse_oe_tajde.wav",
+      "filename": "fire_expldsgn_howitzer_shell_eject_pse_oe_tajde.wav",
+      "path": "data/audio/fire/unlabeled/fire_expldsgn_howitzer_shell_eject_pse_oe_tajde.wav",
+      "relative_path": "fire/unlabeled/fire_expldsgn_howitzer_shell_eject_pse_oe_tajde.wav",
+      "category": "fire",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 3.7599546485260773,
+      "sample_rate": 44100
+    },
+    {
+      "id": "fire_unlabeled_fire_explreal_gas_fire_explosion_pse_oe_iwpmb(2).wav",
+      "filename": "fire_explreal_gas_fire_explosion_pse_oe_iwpmb(2).wav",
+      "path": "data/audio/fire/unlabeled/fire_explreal_gas_fire_explosion_pse_oe_iwpmb(2).wav",
+      "relative_path": "fire/unlabeled/fire_explreal_gas_fire_explosion_pse_oe_iwpmb(2).wav",
+      "category": "fire",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 6.746757369614513,
+      "sample_rate": 44100
+    },
+    {
+      "id": "space_labeled_spac_expldsgn_explosion_scifi_pse_oe_0zacr.wav",
+      "filename": "spac_expldsgn_explosion_scifi_pse_oe_0zacr.wav",
+      "path": "data/audio/space/labeled/spac_expldsgn_explosion_scifi_pse_oe_0zacr.wav",
+      "relative_path": "space/labeled/spac_expldsgn_explosion_scifi_pse_oe_0zacr.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 5.23,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.19757477112977
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.19757477112977,
+            "end": 0.76686306877795
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.76686306877795,
+            "end": 5.23
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.03777720289288145,
+        "shock": 0.10885053492317015,
+        "roar": 0.8533722621839483
+      }
+    },
+    {
+      "id": "space_labeled_spac_dsgnstngr_time_breach_sting_pse_os_tov7g.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_os_tov7g.wav",
+      "path": "data/audio/space/labeled/spac_dsgnstngr_time_breach_sting_pse_os_tov7g.wav",
+      "relative_path": "space/labeled/spac_dsgnstngr_time_breach_sting_pse_os_tov7g.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 5.64,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.21909447049393
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.21909447049393,
+            "end": 0.70380228762113
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.70380228762113,
+            "end": 5.64
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.038846537321618795,
+        "shock": 0.08594110232751773,
+        "roar": 0.8752123603508635
+      }
+    },
+    {
+      "id": "space_labeled_spac_dsgnstngr_time_breach_sting_pse_oe_roxhq.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_oe_roxhq.wav",
+      "path": "data/audio/space/labeled/spac_dsgnstngr_time_breach_sting_pse_oe_roxhq.wav",
+      "relative_path": "space/labeled/spac_dsgnstngr_time_breach_sting_pse_oe_roxhq.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 12.36,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.74948536962926
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.74948536962926,
+            "end": 1.28440321578189
+          }
+        ],
+        "roar": [
+          {
+            "start": 1.28440321578189,
+            "end": 12.36
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.06063797488909871,
+        "shock": 0.04327814289260761,
+        "roar": 0.8960838822182937
+      }
+    },
+    {
+      "id": "space_labeled_spac_dsgnstngr_time_breach_sting_pse_os_f9d0p.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_os_f9d0p.wav",
+      "path": "data/audio/space/labeled/spac_dsgnstngr_time_breach_sting_pse_os_f9d0p.wav",
+      "relative_path": "space/labeled/spac_dsgnstngr_time_breach_sting_pse_os_f9d0p.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 10.029977324263038,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.83622059193518
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.83622059193518,
+            "end": 1.35549780900071
+          }
+        ],
+        "roar": [
+          {
+            "start": 1.35549780900071,
+            "end": 10.02997916666667
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.08337213185041992,
+        "shock": 0.051772521539941205,
+        "roar": 0.8648555302993496
+      }
+    },
+    {
+      "id": "space_labeled_spac_expldsgn_alien_robot_explosion_pse_ode_hflx5.wav",
+      "filename": "spac_expldsgn_alien_robot_explosion_pse_ode_hflx5.wav",
+      "path": "data/audio/space/labeled/spac_expldsgn_alien_robot_explosion_pse_ode_hflx5.wav",
+      "relative_path": "space/labeled/spac_expldsgn_alien_robot_explosion_pse_ode_hflx5.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 2.02,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.10034725051096
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.10034725051096,
+            "end": 0.89785164311996
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.89785164311996,
+            "end": 2.02
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.049676856688594055,
+        "shock": 0.39480415475693065,
+        "roar": 0.5555189885544752
+      }
+    },
+    {
+      "id": "space_labeled_spac_explreal_space_grenade_explosion_pse_oe_svany.wav",
+      "filename": "spac_explreal_space_grenade_explosion_pse_oe_svany.wav",
+      "path": "data/audio/space/labeled/spac_explreal_space_grenade_explosion_pse_oe_svany.wav",
+      "relative_path": "space/labeled/spac_explreal_space_grenade_explosion_pse_oe_svany.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 3.47,
+      "sample_rate": 44100
+    },
+    {
+      "id": "space_labeled_spac_expldsgn_explosion_ripple_echo_pse_os_3mnoj.wav",
+      "filename": "spac_expldsgn_explosion_ripple_echo_pse_os_3mnoj.wav",
+      "path": "data/audio/space/labeled/spac_expldsgn_explosion_ripple_echo_pse_os_3mnoj.wav",
+      "relative_path": "space/labeled/spac_expldsgn_explosion_ripple_echo_pse_os_3mnoj.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 6.4,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.02627926784605
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.02627926784605,
+            "end": 0.73944397571434
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.73944397571434,
+            "end": 6.4
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.004106135600945312,
+        "shock": 0.1114319856044203,
+        "roar": 0.8844618787946343
+      }
+    },
+    {
+      "id": "space_labeled_spac_dsgnstngr_time_breach_sting_pse_os_bcmnh.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_os_bcmnh.wav",
+      "path": "data/audio/space/labeled/spac_dsgnstngr_time_breach_sting_pse_os_bcmnh.wav",
+      "relative_path": "space/labeled/spac_dsgnstngr_time_breach_sting_pse_os_bcmnh.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 2.23,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.43358831434867
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.43358831434867,
+            "end": 0.75084805655502
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.75084805655502,
+            "end": 2.23
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.19443422168101795,
+        "shock": 0.14226894269343046,
+        "roar": 0.6632968356255516
+      }
+    },
+    {
+      "id": "space_labeled_spac_dsgnstngr_time_breach_sting_pse_oe_5doiu.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_oe_5doiu.wav",
+      "path": "data/audio/space/labeled/spac_dsgnstngr_time_breach_sting_pse_oe_5doiu.wav",
+      "relative_path": "space/labeled/spac_dsgnstngr_time_breach_sting_pse_oe_5doiu.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 6.41,
+      "sample_rate": 44100
+    },
+    {
+      "id": "space_labeled_spac_dsgnstngr_time_breach_sting_pse_oe_ernb6.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_oe_ernb6.wav",
+      "path": "data/audio/space/labeled/spac_dsgnstngr_time_breach_sting_pse_oe_ernb6.wav",
+      "relative_path": "space/labeled/spac_dsgnstngr_time_breach_sting_pse_oe_ernb6.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 12.37,
+      "sample_rate": 44100
+    },
+    {
+      "id": "space_labeled_spac_dsgnstngr_time_breach_sting_pse_os_0avru.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_os_0avru.wav",
+      "path": "data/audio/space/labeled/spac_dsgnstngr_time_breach_sting_pse_os_0avru.wav",
+      "relative_path": "space/labeled/spac_dsgnstngr_time_breach_sting_pse_os_0avru.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 12.75,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.64519821817446
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.64519821817446,
+            "end": 1.32251222904474
+          }
+        ],
+        "roar": [
+          {
+            "start": 1.32251222904474,
+            "end": 12.75
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.05060378181760471,
+        "shock": 0.053122667519237644,
+        "roar": 0.8962735506631576
+      }
+    },
+    {
+      "id": "space_labeled_spac_dsgnstngr_time_breach_sting_pse_oe_vvfb4.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_oe_vvfb4.wav",
+      "path": "data/audio/space/labeled/spac_dsgnstngr_time_breach_sting_pse_oe_vvfb4.wav",
+      "relative_path": "space/labeled/spac_dsgnstngr_time_breach_sting_pse_oe_vvfb4.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 11.02,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 3.87048202686144
+          }
+        ],
+        "shock": [
+          {
+            "start": 3.87048202686144,
+            "end": 5.02005599962422
+          }
+        ],
+        "roar": [
+          {
+            "start": 5.02005599962422,
+            "end": 11.02
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.3512234144157387,
+        "shock": 0.10431705741949,
+        "roar": 0.5444595281647713
+      }
+    },
+    {
+      "id": "space_labeled_spac_dsgnstngr_time_breach_sting_pse_os_jule0.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_os_jule0.wav",
+      "path": "data/audio/space/labeled/spac_dsgnstngr_time_breach_sting_pse_os_jule0.wav",
+      "relative_path": "space/labeled/spac_dsgnstngr_time_breach_sting_pse_os_jule0.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 6.14,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.30017451983622
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.30017451983622,
+            "end": 0.94576517958815
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.94576517958815,
+            "end": 6.14
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.04888835827951466,
+        "shock": 0.10514505859151954,
+        "roar": 0.8459665831289658
+      }
+    },
+    {
+      "id": "space_labeled_spac_expldsgn_explosion_double_hit_pse_os_qdvd2.wav",
+      "filename": "spac_expldsgn_explosion_double_hit_pse_os_qdvd2.wav",
+      "path": "data/audio/space/labeled/spac_expldsgn_explosion_double_hit_pse_os_qdvd2.wav",
+      "relative_path": "space/labeled/spac_expldsgn_explosion_double_hit_pse_os_qdvd2.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 2.94,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.0315144393413
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.0315144393413,
+            "end": 0.73719005113501
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.73719005113501,
+            "end": 2.94
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.010719197054863946,
+        "shock": 0.24002571829718025,
+        "roar": 0.7492550846479558
+      }
+    },
+    {
+      "id": "space_labeled_spac_dsgnstngr_time_breach_sting_pse_os_md0fo.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_os_md0fo.wav",
+      "path": "data/audio/space/labeled/spac_dsgnstngr_time_breach_sting_pse_os_md0fo.wav",
+      "relative_path": "space/labeled/spac_dsgnstngr_time_breach_sting_pse_os_md0fo.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 6.14,
+      "sample_rate": 44100,
+      "segments": {
+        "shock": [
+          {
+            "start": 0.26381524717006,
+            "end": 0.89748912517656
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.89748912517656,
+            "end": 6.14
+          }
+        ]
+      },
+      "coverage": {
+        "shock": 0.10320421465903909,
+        "roar": 0.8538291327074007
+      }
+    },
+    {
+      "id": "space_labeled_spac_dsgnstngr_time_breach_sting_pse_os_jmspv.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_os_jmspv.wav",
+      "path": "data/audio/space/labeled/spac_dsgnstngr_time_breach_sting_pse_os_jmspv.wav",
+      "relative_path": "space/labeled/spac_dsgnstngr_time_breach_sting_pse_os_jmspv.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 6.23,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.83369490818403
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.83369490818403,
+            "end": 1.32518839816739
+          }
+        ],
+        "roar": [
+          {
+            "start": 1.32518839816739,
+            "end": 6.23
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.13381940741316692,
+        "shock": 0.0788914109122568,
+        "roar": 0.7872891816745763
+      }
+    },
+    {
+      "id": "space_labeled_spac_dsgnstngr_time_breach_sting_pse_os_6muhj.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_os_6muhj.wav",
+      "path": "data/audio/space/labeled/spac_dsgnstngr_time_breach_sting_pse_os_6muhj.wav",
+      "relative_path": "space/labeled/spac_dsgnstngr_time_breach_sting_pse_os_6muhj.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 6.11,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.26346251159809
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.26346251159809,
+            "end": 0.96977522173291
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.96977522173291,
+            "end": 6.11
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.04311988733192962,
+        "shock": 0.115599461560527,
+        "roar": 0.8412806511075435
+      }
+    },
+    {
+      "id": "space_labeled_spac_dsgnstngr_time_breach_sting_pse_oe_s1p40.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_oe_s1p40.wav",
+      "path": "data/audio/space/labeled/spac_dsgnstngr_time_breach_sting_pse_oe_s1p40.wav",
+      "relative_path": "space/labeled/spac_dsgnstngr_time_breach_sting_pse_oe_s1p40.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 7.08,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.99
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.99,
+            "end": 1.54968956373144
+          }
+        ],
+        "roar": [
+          {
+            "start": 1.54968956373144,
+            "end": 7.08
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.13983050847457626,
+        "shock": 0.07905219826715255,
+        "roar": 0.7811172932582712
+      }
+    },
+    {
+      "id": "space_labeled_spac_dsgnstngr_time_breach_sting_pse_oe_gstec.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_oe_gstec.wav",
+      "path": "data/audio/space/labeled/spac_dsgnstngr_time_breach_sting_pse_oe_gstec.wav",
+      "relative_path": "space/labeled/spac_dsgnstngr_time_breach_sting_pse_oe_gstec.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 3.42,
+      "sample_rate": 44100
+    },
+    {
+      "id": "space_labeled_spac_dsgnstngr_time_breach_sting_pse_oe_ikptd.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_oe_ikptd.wav",
+      "path": "data/audio/space/labeled/spac_dsgnstngr_time_breach_sting_pse_oe_ikptd.wav",
+      "relative_path": "space/labeled/spac_dsgnstngr_time_breach_sting_pse_oe_ikptd.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 12.95,
+      "sample_rate": 44100
+    },
+    {
+      "id": "space_labeled_spac_expldsgn_alien_robot_explosion_pse_ode_zeqod.wav",
+      "filename": "spac_expldsgn_alien_robot_explosion_pse_ode_zeqod.wav",
+      "path": "data/audio/space/labeled/spac_expldsgn_alien_robot_explosion_pse_ode_zeqod.wav",
+      "relative_path": "space/labeled/spac_expldsgn_alien_robot_explosion_pse_ode_zeqod.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 4.43,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.39478268628022
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.39478268628022,
+            "end": 0.99124958998181
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.99124958998181,
+            "end": 4.40448507751173
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.08911573053729571,
+        "shock": 0.1346426419190948,
+        "roar": 0.7704820513611558
+      }
+    },
+    {
+      "id": "space_labeled_spac_explreal_space_grenade_explosion_pse_oe_dwsnv.wav",
+      "filename": "spac_explreal_space_grenade_explosion_pse_oe_dwsnv.wav",
+      "path": "data/audio/space/labeled/spac_explreal_space_grenade_explosion_pse_oe_dwsnv.wav",
+      "relative_path": "space/labeled/spac_explreal_space_grenade_explosion_pse_oe_dwsnv.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 5.66,
+      "sample_rate": 44100
+    },
+    {
+      "id": "space_labeled_spac_dsgnstngr_time_breach_sting_pse_os_dc4a3.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_os_dc4a3.wav",
+      "path": "data/audio/space/labeled/spac_dsgnstngr_time_breach_sting_pse_os_dc4a3.wav",
+      "relative_path": "space/labeled/spac_dsgnstngr_time_breach_sting_pse_os_dc4a3.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 7.17,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 1.75
+          }
+        ],
+        "shock": [
+          {
+            "start": 1.75,
+            "end": 2.29337567993159
+          }
+        ],
+        "roar": [
+          {
+            "start": 2.29337567993159,
+            "end": 7.17
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.24407252440725244,
+        "shock": 0.07578461365852021,
+        "roar": 0.6801428619342275
+      }
+    },
+    {
+      "id": "space_labeled_spac_expldsgn_concussion_bomb_explosion_scifi_pse_ode_rxtyv.wav",
+      "filename": "spac_expldsgn_concussion_bomb_explosion_scifi_pse_ode_rxtyv.wav",
+      "path": "data/audio/space/labeled/spac_expldsgn_concussion_bomb_explosion_scifi_pse_ode_rxtyv.wav",
+      "relative_path": "space/labeled/spac_expldsgn_concussion_bomb_explosion_scifi_pse_ode_rxtyv.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 2.9,
+      "sample_rate": 44100
+    },
+    {
+      "id": "space_labeled_spac_expldsgn_explosion_flanged_laser_burst_pse_ode_roeer.wav",
+      "filename": "spac_expldsgn_explosion_flanged_laser_burst_pse_ode_roeer.wav",
+      "path": "data/audio/space/labeled/spac_expldsgn_explosion_flanged_laser_burst_pse_ode_roeer.wav",
+      "relative_path": "space/labeled/spac_expldsgn_explosion_flanged_laser_burst_pse_ode_roeer.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 1.03,
+      "sample_rate": 44100
+    },
+    {
+      "id": "space_labeled_spac_dsgnstngr_time_breach_sting_pse_oe_slk6s.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_oe_slk6s.wav",
+      "path": "data/audio/space/labeled/spac_dsgnstngr_time_breach_sting_pse_oe_slk6s.wav",
+      "relative_path": "space/labeled/spac_dsgnstngr_time_breach_sting_pse_oe_slk6s.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 5.13,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.57829792487286
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.57829792487286,
+            "end": 1.14741859125856
+          }
+        ],
+        "roar": [
+          {
+            "start": 1.14741859125856,
+            "end": 5.13
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.11272864032609357,
+        "shock": 0.11093970104984403,
+        "roar": 0.7763316586240624
+      }
+    },
+    {
+      "id": "space_labeled_spac_dsgnstngr_time_breach_sting_pse_oe_wepuc.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_oe_wepuc.wav",
+      "path": "data/audio/space/labeled/spac_dsgnstngr_time_breach_sting_pse_oe_wepuc.wav",
+      "relative_path": "space/labeled/spac_dsgnstngr_time_breach_sting_pse_oe_wepuc.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 7.06,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.92846619566571
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.92846619566571,
+            "end": 1.3753438869966
+          }
+        ],
+        "roar": [
+          {
+            "start": 1.3753438869966,
+            "end": 7.06
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.13151079258721105,
+        "shock": 0.06329712341797308,
+        "roar": 0.8051920839948159
+      }
+    },
+    {
+      "id": "space_labeled_spac_expldsgn_explosion_double_slap_pse_oe_bczft.wav",
+      "filename": "spac_expldsgn_explosion_double_slap_pse_oe_bczft.wav",
+      "path": "data/audio/space/labeled/spac_expldsgn_explosion_double_slap_pse_oe_bczft.wav",
+      "relative_path": "space/labeled/spac_expldsgn_explosion_double_slap_pse_oe_bczft.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 2.88,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.26747135573092
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.26747135573092,
+            "end": 0.99525030886824
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.99525030886824,
+            "end": 2.88
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.09287199851768056,
+        "shock": 0.2527010253949028,
+        "roar": 0.6544269760874167
+      }
+    },
+    {
+      "id": "space_labeled_spac_expldsgn_explosion_spark_boom_pse_os_sda1x.wav",
+      "filename": "spac_expldsgn_explosion_spark_boom_pse_os_sda1x.wav",
+      "path": "data/audio/space/labeled/spac_expldsgn_explosion_spark_boom_pse_os_sda1x.wav",
+      "relative_path": "space/labeled/spac_expldsgn_explosion_spark_boom_pse_os_sda1x.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 1.75,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 0.09414281935675
+          }
+        ],
+        "shock": [
+          {
+            "start": 0.09414281935675,
+            "end": 0.92940390834755
+          }
+        ],
+        "roar": [
+          {
+            "start": 0.92940390834755,
+            "end": 1.75
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.05379589677528571,
+        "shock": 0.47729205085188575,
+        "roar": 0.46891205237282857
+      }
+    },
+    {
+      "id": "space_labeled_spac_dsgnstngr_time_breach_sting_pse_os_7dwcp.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_os_7dwcp.wav",
+      "path": "data/audio/space/labeled/spac_dsgnstngr_time_breach_sting_pse_os_7dwcp.wav",
+      "relative_path": "space/labeled/spac_dsgnstngr_time_breach_sting_pse_os_7dwcp.wav",
+      "category": "space",
+      "subcategory": "labeled",
+      "labeled": true,
+      "duration": 4.97,
+      "sample_rate": 44100,
+      "segments": {
+        "ground": [
+          {
+            "start": 0.0,
+            "end": 1.32
+          }
+        ],
+        "shock": [
+          {
+            "start": 1.32,
+            "end": 2.26
+          }
+        ],
+        "roar": [
+          {
+            "start": 2.26,
+            "end": 4.97
+          }
+        ]
+      },
+      "coverage": {
+        "ground": 0.2655935613682093,
+        "shock": 0.18913480885311867,
+        "roar": 0.545271629778672
+      }
+    },
+    {
+      "id": "space_unlabeled_spac_explreal_space_grenade_explosion_pse_os_jrvxo.wav",
+      "filename": "spac_explreal_space_grenade_explosion_pse_os_jrvxo.wav",
+      "path": "data/audio/space/unlabeled/spac_explreal_space_grenade_explosion_pse_os_jrvxo.wav",
+      "relative_path": "space/unlabeled/spac_explreal_space_grenade_explosion_pse_os_jrvxo.wav",
+      "category": "space",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 2.84,
+      "sample_rate": 44100
+    },
+    {
+      "id": "space_unlabeled_spac_dsgnstngr_time_breach_sting_pse_oe_5g36a.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_oe_5g36a.wav",
+      "path": "data/audio/space/unlabeled/spac_dsgnstngr_time_breach_sting_pse_oe_5g36a.wav",
+      "relative_path": "space/unlabeled/spac_dsgnstngr_time_breach_sting_pse_oe_5g36a.wav",
+      "category": "space",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 2.82,
+      "sample_rate": 44100
+    },
+    {
+      "id": "space_unlabeled_spac_explreal_space_grenade_explosion_pse_oe_cdyve.wav",
+      "filename": "spac_explreal_space_grenade_explosion_pse_oe_cdyve.wav",
+      "path": "data/audio/space/unlabeled/spac_explreal_space_grenade_explosion_pse_oe_cdyve.wav",
+      "relative_path": "space/unlabeled/spac_explreal_space_grenade_explosion_pse_oe_cdyve.wav",
+      "category": "space",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 1.75,
+      "sample_rate": 44100
+    },
+    {
+      "id": "space_unlabeled_spac_explreal_space_grenade_explosion_pse_oe_0tge3.wav",
+      "filename": "spac_explreal_space_grenade_explosion_pse_oe_0tge3.wav",
+      "path": "data/audio/space/unlabeled/spac_explreal_space_grenade_explosion_pse_oe_0tge3.wav",
+      "relative_path": "space/unlabeled/spac_explreal_space_grenade_explosion_pse_oe_0tge3.wav",
+      "category": "space",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 1.71,
+      "sample_rate": 44100
+    },
+    {
+      "id": "space_unlabeled_spac_explreal_space_grenade_explosion_pse_oe_f51fb.wav",
+      "filename": "spac_explreal_space_grenade_explosion_pse_oe_f51fb.wav",
+      "path": "data/audio/space/unlabeled/spac_explreal_space_grenade_explosion_pse_oe_f51fb.wav",
+      "relative_path": "space/unlabeled/spac_explreal_space_grenade_explosion_pse_oe_f51fb.wav",
+      "category": "space",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 3.27,
+      "sample_rate": 44100
+    },
+    {
+      "id": "space_unlabeled_spac_explreal_space_grenade_explosion_pse_oe_0rcxm.wav",
+      "filename": "spac_explreal_space_grenade_explosion_pse_oe_0rcxm.wav",
+      "path": "data/audio/space/unlabeled/spac_explreal_space_grenade_explosion_pse_oe_0rcxm.wav",
+      "relative_path": "space/unlabeled/spac_explreal_space_grenade_explosion_pse_oe_0rcxm.wav",
+      "category": "space",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 3.27,
+      "sample_rate": 44100
+    },
+    {
+      "id": "space_unlabeled_spac_dsgnstngr_time_breach_sting_pse_oe_gu4ag.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_oe_gu4ag.wav",
+      "path": "data/audio/space/unlabeled/spac_dsgnstngr_time_breach_sting_pse_oe_gu4ag.wav",
+      "relative_path": "space/unlabeled/spac_dsgnstngr_time_breach_sting_pse_oe_gu4ag.wav",
+      "category": "space",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 6.26,
+      "sample_rate": 44100
+    },
+    {
+      "id": "space_unlabeled_spac_explreal_space_grenade_explosion_pse_oe_b7ioj.wav",
+      "filename": "spac_explreal_space_grenade_explosion_pse_oe_b7ioj.wav",
+      "path": "data/audio/space/unlabeled/spac_explreal_space_grenade_explosion_pse_oe_b7ioj.wav",
+      "relative_path": "space/unlabeled/spac_explreal_space_grenade_explosion_pse_oe_b7ioj.wav",
+      "category": "space",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 7.98,
+      "sample_rate": 44100
+    },
+    {
+      "id": "space_unlabeled_spac_dsgnstngr_time_breach_sting_pse_oe_nqiqe.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_oe_nqiqe.wav",
+      "path": "data/audio/space/unlabeled/spac_dsgnstngr_time_breach_sting_pse_oe_nqiqe.wav",
+      "relative_path": "space/unlabeled/spac_dsgnstngr_time_breach_sting_pse_oe_nqiqe.wav",
+      "category": "space",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 6.06,
+      "sample_rate": 44100
+    },
+    {
+      "id": "space_unlabeled_spac_explreal_space_grenade_explosion_pse_oe_rdj9n.wav",
+      "filename": "spac_explreal_space_grenade_explosion_pse_oe_rdj9n.wav",
+      "path": "data/audio/space/unlabeled/spac_explreal_space_grenade_explosion_pse_oe_rdj9n.wav",
+      "relative_path": "space/unlabeled/spac_explreal_space_grenade_explosion_pse_oe_rdj9n.wav",
+      "category": "space",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 2.82,
+      "sample_rate": 44100
+    },
+    {
+      "id": "space_unlabeled_spac_dsgnstngr_time_breach_sting_pse_oe_dqxbn.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_oe_dqxbn.wav",
+      "path": "data/audio/space/unlabeled/spac_dsgnstngr_time_breach_sting_pse_oe_dqxbn.wav",
+      "relative_path": "space/unlabeled/spac_dsgnstngr_time_breach_sting_pse_oe_dqxbn.wav",
+      "category": "space",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 6.47,
+      "sample_rate": 44100
+    },
+    {
+      "id": "space_unlabeled_spac_dsgnstngr_time_breach_sting_pse_oe_hkojd.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_oe_hkojd.wav",
+      "path": "data/audio/space/unlabeled/spac_dsgnstngr_time_breach_sting_pse_oe_hkojd.wav",
+      "relative_path": "space/unlabeled/spac_dsgnstngr_time_breach_sting_pse_oe_hkojd.wav",
+      "category": "space",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 9.35,
+      "sample_rate": 44100
+    },
+    {
+      "id": "space_unlabeled_spac_dsgnstngr_time_breach_sting_pse_oe_rg8ua.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_oe_rg8ua.wav",
+      "path": "data/audio/space/unlabeled/spac_dsgnstngr_time_breach_sting_pse_oe_rg8ua.wav",
+      "relative_path": "space/unlabeled/spac_dsgnstngr_time_breach_sting_pse_oe_rg8ua.wav",
+      "category": "space",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 2.82,
+      "sample_rate": 44100
+    },
+    {
+      "id": "space_unlabeled_spac_dsgnstngr_time_breach_sting_pse_oe_czhde.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_oe_czhde.wav",
+      "path": "data/audio/space/unlabeled/spac_dsgnstngr_time_breach_sting_pse_oe_czhde.wav",
+      "relative_path": "space/unlabeled/spac_dsgnstngr_time_breach_sting_pse_oe_czhde.wav",
+      "category": "space",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 6.7,
+      "sample_rate": 44100
+    },
+    {
+      "id": "space_unlabeled_spac_dsgnstngr_time_breach_sting_pse_oe_qhyia.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_oe_qhyia.wav",
+      "path": "data/audio/space/unlabeled/spac_dsgnstngr_time_breach_sting_pse_oe_qhyia.wav",
+      "relative_path": "space/unlabeled/spac_dsgnstngr_time_breach_sting_pse_oe_qhyia.wav",
+      "category": "space",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 6.37,
+      "sample_rate": 44100
+    },
+    {
+      "id": "space_unlabeled_spac_dsgnstngr_time_breach_sting_pse_oe_53lgy.wav",
+      "filename": "spac_dsgnstngr_time_breach_sting_pse_oe_53lgy.wav",
+      "path": "data/audio/space/unlabeled/spac_dsgnstngr_time_breach_sting_pse_oe_53lgy.wav",
+      "relative_path": "space/unlabeled/spac_dsgnstngr_time_breach_sting_pse_oe_53lgy.wav",
+      "category": "space",
+      "subcategory": "unlabeled",
+      "labeled": false,
+      "duration": 6.19,
+      "sample_rate": 44100
+    }
+  ]
+}
