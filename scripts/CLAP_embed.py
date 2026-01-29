@@ -10,8 +10,6 @@ Outputs (created):
 - data/embeddings/<category>/<stem>_emb.npy   (shape: 4, D)
 - data/embeddings/<category>/<stem>_meta.json
 """
-print(">>> TOP OF FILE: CLAP_embed.py is executing")
-
 
 import os
 import json
