@@ -13,8 +13,12 @@ Due to file size constraints, the CLAP audio embeddings generated for this proje
 
 https://huggingface.co/datasets/krvieni/ML-Based-Procedural-Sound-Design/resolve/main/embeddings.zip
 
-The embeddings preserve the original folder structure used during processing. To regenerate the embeddings locally, run:
+The embeddings preserve the original folder structure used during processing. 
 
-```bash
-python scripts/CLAP_embed.py
+## K Means Predictions 
+
+The predicted segments and output audio are hosted at this link: 
+
+https://huggingface.co/datasets/krvieni/ML-Based-Procedural-Sound-Design/resolve/main/kmeans_results.zip
+
 
