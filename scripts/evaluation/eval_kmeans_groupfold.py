@@ -239,7 +239,6 @@ def plot_one_scatter_pca(df, out_path):
     One PCA scatter of pooled TEST windows:
     - point color = true_label
     - marker shape = pred_label
-    This shows separation + errors in one plot without being a circus.
     """
     # Rebuild X/meta so we can locate the embeddings for the *test* windows
     X_all, meta_all = rebuild_labeled_windows_X_meta()
@@ -251,7 +250,13 @@ def plot_one_scatter_pca(df, out_path):
     key_to_idx = {k: i for i, k in enumerate(meta_all["key"].tolist())}
 
     d = df.copy()
-    d["key"] = d["rel"].astype(str) + "||" + d["window_start"].astype(str) + "||" + d["window_end"].astype(str)
+    d["key"] = (
+        d["rel"].astype(str)
+        + "||"
+        + d["window_start"].astype(str)
+        + "||"
+        + d["window_end"].astype(str)
+    )
 
     idxs = [key_to_idx.get(k, None) for k in d["key"].tolist()]
     keep = [i for i, ix in enumerate(idxs) if ix is not None]
@@ -261,15 +266,27 @@ def plot_one_scatter_pca(df, out_path):
     d2 = d.iloc[keep].reset_index(drop=True)
     X2 = np.asarray([X2_all[idxs[i]] for i in keep], dtype=np.float32)
 
-    true_codes, true_uniq = pd.factorize(d2["true_label"])
-    pred_uniq = TARGET_LABELS[:]  # stable order
+    # --- FIX: stable mappings for BOTH legends ---
+    color_map = {
+        "ground": "#1f77b4",  # blue
+        "shock":  "#ff7f0e",  # orange
+        "roar":   "#9467bd",  # purple
+    }
+    marker_map = {
+        "ground": "o",
+        "shock":  "^",
+        "roar":   "s",
+    }
 
-    marker_map = {"ground": "o", "shock": "^", "roar": "s"}  # distinct, readable
+    # Map true labels -> actual colors used in scatter
+    true_colors = d2["true_label"].map(color_map).to_numpy()
+
+    pred_uniq = TARGET_LABELS[:]  # stable order for marker legend
 
     fig = plt.figure()
     ax = plt.gca()
 
-    # plot by pred marker (so marker legend stays clean)
+    # Plot by predicted label so marker legend is clean/stable
     for pred in pred_uniq:
         mask = (d2["pred_label"].to_numpy() == pred)
         if mask.sum() == 0:
@@ -277,25 +294,48 @@ def plot_one_scatter_pca(df, out_path):
         ax.scatter(
             X2[mask, 0],
             X2[mask, 1],
-            c=true_codes[mask],
-            s=10,
+            c=true_colors[mask],
+            s=18,
             marker=marker_map[pred],
             alpha=0.8,
+            edgecolors="black",
+            linewidths=0.25,
         )
 
     ax.set_title("PCA scatter of pooled test windows\nColor=true label, Marker=predicted label")
     ax.set_xlabel("PC1")
     ax.set_ylabel("PC2")
 
-    # Legends (2 of them, but not awful)
-    # Marker legend
-    marker_handles = [plt.Line2D([], [], marker=marker_map[p], linestyle="", label=f"pred={p}") for p in pred_uniq]
-    leg1 = ax.legend(handles=marker_handles, title="Predicted label (marker)", loc="best", fontsize=8)
+    # --- Legends that actually match the plot ---
 
-    # Color legend (true label)
-    color_handles = [plt.Line2D([], [], marker="o", linestyle="", label=f"true={t}") for t in true_uniq]
+    # Marker legend (predicted)
+    marker_handles = [
+        plt.Line2D([], [], marker=marker_map[p], linestyle="", color="black", label=f"pred={p}")
+        for p in pred_uniq
+    ]
+    leg1 = ax.legend(
+        handles=marker_handles,
+        title="Predicted label (marker)",
+        loc="lower right",
+        fontsize=8,
+        title_fontsize=9,
+        frameon=True,
+    )
+
+    # Color legend (true)
+    color_handles = [
+        plt.Line2D([], [], marker="o", linestyle="", color=color_map[t], label=f"true={t}")
+        for t in TARGET_LABELS
+    ]
     ax.add_artist(leg1)
-    ax.legend(handles=color_handles, title="True label (color)", loc="upper right", fontsize=8)
+    ax.legend(
+        handles=color_handles,
+        title="True label (color)",
+        loc="upper right",
+        fontsize=8,
+        title_fontsize=9,
+        frameon=True,
+    )
 
     fig.tight_layout()
     fig.savefig(out_path, dpi=200)
@@ -308,7 +348,8 @@ def main():
     if not CV_PRED_PATH.exists():
         raise FileNotFoundError(f"Missing CV predictions: {CV_PRED_PATH}")
 
-    df = pd.DataFrame(json.load(open(CV_PRED_PATH, "r")))
+    with open(CV_PRED_PATH, "r") as f:
+        df = pd.DataFrame(json.load(f))
 
     needed = {"fold", "true_label", "pred_label", "rel", "window_start", "window_end"}
     missing = needed - set(df.columns)
@@ -317,7 +358,7 @@ def main():
 
     df["fold"] = df["fold"].astype(int)
 
-    # Save fold-avg numbers too (so plots have receipts)
+    # Save fold-level metrics
     folds = sorted(df["fold"].unique())
     metrics = []
     for fold in folds:
@@ -326,7 +367,7 @@ def main():
         y_pred = d["pred_label"].to_numpy()
         metrics.append({
             "fold": fold,
-            "n_test": len(d),
+            "n_test": int(len(d)),
             "accuracy": float((y_true == y_pred).mean()),
             "f1_macro": float(f1_score(y_true, y_pred, average="macro", labels=TARGET_LABELS, zero_division=0)),
             "f1_weighted": float(f1_score(y_true, y_pred, average="weighted", labels=TARGET_LABELS, zero_division=0)),
