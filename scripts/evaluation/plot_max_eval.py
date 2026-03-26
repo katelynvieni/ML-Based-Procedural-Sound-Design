@@ -121,11 +121,17 @@ def save_spectrogram_figure(file_list, title, outpath):
         y = align_to_onset(y, sr)
         signals.append(y)
 
-    fig, axes = plt.subplots(len(signals), 1, figsize=(10, 8), sharex=False, sharey=True)
+    fig, axes = plt.subplots(
+        len(signals), 1,
+        figsize=(10, 8),
+        sharex=False,
+        sharey=True
+    )
 
     if len(signals) == 1:
         axes = [axes]
 
+    img = None
     for ax, y, label in zip(axes, signals, LABELS_3):
         S = librosa.stft(y, n_fft=N_FFT, hop_length=HOP_LENGTH)
         S_db = librosa.amplitude_to_db(np.abs(S), ref=np.max)
@@ -143,9 +149,12 @@ def save_spectrogram_figure(file_list, title, outpath):
 
     axes[-1].set_xlabel("Time (s)")
     fig.suptitle(title)
-    cbar = fig.colorbar(img, ax=axes, format="%+2.0f dB")
+
+    fig.subplots_adjust(right=0.88, hspace=0.35, top=0.92)
+    cbar_ax = fig.add_axes([0.90, 0.15, 0.02, 0.70])
+    cbar = fig.colorbar(img, cax=cbar_ax, format="%+2.0f dB")
     cbar.set_label("Magnitude (dB)")
-    fig.tight_layout()
+
     fig.savefig(outpath, dpi=300, bbox_inches="tight")
     plt.close(fig)
 
@@ -157,11 +166,18 @@ def save_baseline_generated_spectrogram(baseline_file, generated_file, outpath):
     baseline = align_to_onset(baseline)
     generated = align_to_onset(generated)
 
-    fig, axes = plt.subplots(2, 1, figsize=(10, 8), sharex=False, sharey=True)
+    fig, axes = plt.subplots(
+        2, 1,
+        figsize=(10, 8),
+        sharex=False,
+        sharey=True
+    )
 
+    img = None
     for ax, y, title in zip(axes, [baseline, generated], ["Baseline", "Generated"]):
         S = librosa.stft(y, n_fft=N_FFT, hop_length=HOP_LENGTH)
         S_db = librosa.amplitude_to_db(np.abs(S), ref=np.max)
+
         img = librosa.display.specshow(
             S_db,
             sr=TARGET_SR,
@@ -175,9 +191,12 @@ def save_baseline_generated_spectrogram(baseline_file, generated_file, outpath):
 
     axes[-1].set_xlabel("Time (s)")
     fig.suptitle("Baseline vs Generated Spectrogram")
-    cbar = fig.colorbar(img, ax=axes, format="%+2.0f dB")
+
+    fig.subplots_adjust(right=0.88, hspace=0.28, top=0.92)
+    cbar_ax = fig.add_axes([0.90, 0.15, 0.02, 0.70])
+    cbar = fig.colorbar(img, cax=cbar_ax, format="%+2.0f dB")
     cbar.set_label("Magnitude (dB)")
-    fig.tight_layout()
+
     fig.savefig(outpath, dpi=300, bbox_inches="tight")
     plt.close(fig)
 
