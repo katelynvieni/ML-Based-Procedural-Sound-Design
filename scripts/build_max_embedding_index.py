@@ -1,3 +1,21 @@
+"""
+Builds a segment metadata JSON and embedding index for Max/MSP from pre-segmented explosion audio.
+
+This script takes full audio files plus matching segment annotation files, extracts valid
+segments, generates CLAP embeddings for each segment, reduces those embeddings to PCA16,
+and writes the JSON/embedding files needed for Max/MSP to load, search, and play back
+segments during retrieval-based synthesis.
+
+The annotation files can come from manual labeling or from model-generated segment outputs,
+as long as they follow the expected segment text format.
+
+Outputs:
+- segment metadata JSON for Max/MSP
+- segment-level CLAP 512 embeddings (.npy)
+- segment-level PCA16 embeddings (.npy)
+- build report summarizing processed and skipped files
+"""
+
 import re
 import json
 from pathlib import Path
@@ -13,7 +31,7 @@ CATEGORIES = ["chemical", "electrical", "fire", "space"]
 AUDIO_ROOT = Path("data/audio")
 LABELS_ROOT = Path("data/labels")
 
-OUT_JSON = Path("data/segments_labeled.json")
+OUT_JSON = Path("data/segments_index_max.json")
 OUT_EMB_512 = Path("data/embeddings/segments_clap512")
 OUT_EMB_PCA16 = Path("data/embeddings/segments_pca16")
 OUT_REPORT = Path("data/build_segments_report.json")
@@ -21,8 +39,6 @@ OUT_REPORT = Path("data/build_segments_report.json")
 TARGET_SR = 48000
 MIN_SEGMENT_SECONDS = 0.10
 
-# Map label tokens -> canonical labels
-# Debris labels are intentionally ignored (not mapped)
 LABEL_MAP = {
     "ground": "ground",
     "shock": "shock",
