@@ -1,10 +1,9 @@
 # ML-Based-Procedural-Sound-Design
 
 ## CLAP Checkpoint
-Download the CLAP checkpoint from:
-https://huggingface.co/datasets/krvieni/ML-Based-Procedural-Sound-Design/resolve/main/music_audioset_epoch_15_esc_90.14.pt
+Audio embeddings in this project were generated using the LAION-CLAP checkpoint music_audioset_epoch_15_esc_90.14.pt. This is a public checkpoint used consistently across the embedding pipeline for all experiments.
 
-Place the file in:
+For reproduibility, place the file in:
 data/checkpoints/music_audioset_epoch_15_esc_90.14.pt
 
 ## CLAP Embeddings
