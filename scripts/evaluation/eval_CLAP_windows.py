@@ -377,6 +377,36 @@ def plot_confusion(out_path: Path, cm: np.ndarray, title: str) -> None:
     plt.close()
 
 
+def plot_accuracy_summary(
+    out_path: Path,
+    overall_acc: float,
+    per_label_acc: Dict[str, Optional[float]],
+    title: str,
+) -> None:
+    labels = ["overall"] + list(VALID_LABELS)
+    values = [overall_acc] + [per_label_acc.get(lab) for lab in VALID_LABELS]
+    values = [float(v) if v is not None else 0.0 for v in values]
+
+    plt.figure(figsize=(8, 5))
+    bars = plt.bar(labels, values)
+    plt.ylim(0.0, 1.0)
+    plt.ylabel("accuracy")
+    plt.title(title)
+
+    for bar, val in zip(bars, values):
+        plt.text(
+            bar.get_x() + bar.get_width() / 2,
+            val + 0.02,
+            f"{val:.3f}",
+            ha="center",
+            va="bottom",
+        )
+
+    plt.tight_layout()
+    plt.savefig(out_path, dpi=200)
+    plt.close()
+
+
 # -----------------------------
 # Main
 # -----------------------------
@@ -475,6 +505,14 @@ def main():
 
     # Confusion matrix plot
     plot_confusion(out_dir / "confusion_matrix.png", cm, "Confusion matrix (1-NN cosine)")
+
+    # Accuracy summary plot
+    plot_accuracy_summary(
+        out_dir / "accuracy_summary.png",
+        overall_acc=res["accuracy"],
+        per_label_acc=res["per_label_accuracy"],
+        title="1-NN Cosine LOO Accuracy",
+    )
 
     # 2D visualization (PCA only, not PCA embeddings)
     coords_pca = PCA(n_components=2, random_state=0).fit_transform(X)
