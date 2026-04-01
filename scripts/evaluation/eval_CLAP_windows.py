@@ -389,14 +389,15 @@ def plot_accuracy_summary(
 
     plt.figure(figsize=(8, 5))
     bars = plt.bar(labels, values)
-    plt.ylim(0.0, 1.0)
+    plt.ylim(0.0, 1.04)
     plt.ylabel("accuracy")
     plt.title(title)
 
     for bar, val in zip(bars, values):
+        y_text = min(val + 0.02, 0.98)
         plt.text(
             bar.get_x() + bar.get_width() / 2,
-            val + 0.02,
+            y_text,
             f"{val:.3f}",
             ha="center",
             va="bottom",
@@ -405,7 +406,6 @@ def plot_accuracy_summary(
     plt.tight_layout()
     plt.savefig(out_path, dpi=200)
     plt.close()
-
 
 # -----------------------------
 # Main
