@@ -1,10 +1,18 @@
+"""
+Builds a repo-relative JSON index of the explosion audio dataset for analysis and clustering.
+
+This script scans the dataset folders, collects audio metadata, and parses matching .txt
+annotation files for labeled audio. It stores file-level information for both labeled and
+unlabeled files, and includes segment time ranges for ground, shock, and roar when labels
+are available. The output JSON is used for dataset organization and downstream workflows.
+"""
+
 import json
 import argparse
 from pathlib import Path
 from typing import Dict, List, Optional
 
 import librosa
-
 
 class AudioDatasetIndexer:
     def __init__(self, repo_root: Path, assets_rel: Path, labels_rel: Path, output_rel: Path):
