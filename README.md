@@ -6,9 +6,9 @@ The explosion audio files are hosted separately on Hugging Face due to file size
 After downloading, place the audio files inside `data/audio/` so the project structure is:
 
 data/
-├── audio/
-├── labels/
-└── metadata/
+  audio/
+  labels/
+  metadata/
 
 The labels and metadata are already included in this repository. Audio filenames should remain unchanged so they continue to correspond correctly with the provided labels.
 
