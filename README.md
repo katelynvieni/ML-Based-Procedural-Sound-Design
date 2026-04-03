@@ -15,10 +15,12 @@ data/
 The labels and metadata are already included in this repository. Audio filenames should remain unchanged so they continue to correspond correctly with the provided labels.
 
 ## CLAP Checkpoint
-Audio embeddings in this project were generated using the LAION-CLAP checkpoint music_audioset_epoch_15_esc_90.14.pt. This is a public checkpoint used consistently across the embedding pipeline for all experiments.
+Audio embeddings in this project were generated using the LAION-CLAP checkpoint 630k-audioset-best.pt The checkpoint can be downloaded from:
+
+https://huggingface.co/datasets/krvieni/ML-Based-Procedural-Sound-Design/resolve/main/630k-audioset-best.pt
 
 For reproduibility, place the file in:
-data/checkpoints/music_audioset_epoch_15_esc_90.14.pt
+[data/checkpoints/music_audioset_epoch_15_esc_90.14.pt]
 
 ## CLAP Embeddings
 
