@@ -24,7 +24,7 @@ data/checkpoints/music_audioset_epoch_15_esc_90.14.pt
 
 Due to file size constraints, the CLAP audio embeddings generated for this project are hosted externally on Hugging Face, hosted at this link: 
 
-https://huggingface.co/datasets/krvieni/ML-Based-Procedural-Sound-Design/resolve/main/embeddings.zip
+https://huggingface.co/datasets/krvieni/ML-Based-Procedural-Sound-Design/resolve/main/embeddings_630k_audioset.zip
 
 The embeddings preserve the original folder structure used during processing. 
 
