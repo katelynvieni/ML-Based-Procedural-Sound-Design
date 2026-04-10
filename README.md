@@ -8,6 +8,17 @@ This project requires:
 - Max/MSP 9.1 or later for running the interactive synthesis patch
 - external project files downloaded separately from Hugging Face
 
+## Python Environment
+
+Create and activate a local virtual environment before installing dependencies:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
 ## External Files Required
 
 The following files are not included in this GitHub repository and must be downloaded separately from Hugging Face for reproduction:
