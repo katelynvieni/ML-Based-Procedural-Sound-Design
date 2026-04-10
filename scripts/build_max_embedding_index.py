@@ -81,7 +81,7 @@ EXPECTED_WAVS_PER_CATEGORY = 30
 # CLAP CONFIG
 
 ENABLE_FUSION = False
-CLAP_CKPT_PATH = Path("/Users/katelynvieni/Downloads/630k-audioset-best.pt")
+CLAP_CKPT_PATH = ROOT / "data" / "checkpoints" / "630k-audioset-best.pt"
 
 CLAP_AMODEL_CANDIDATES = [
     "HTSAT-tiny",
