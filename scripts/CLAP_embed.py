@@ -37,7 +37,7 @@ VALID_CATEGORIES = {"chemical", "electrical", "fire", "space"}
 REPO_ROOT = Path(__file__).resolve().parents[1]
 ASSETS_DIR = REPO_ROOT / "data" / "audio"
 INDEX_PATH = REPO_ROOT / "data" / "metadata" / "audio_dataset_index.json"
-CHECKPOINT_PATH = Path.home() / "Downloads" / "630k-audioset-best.pt"
+CHECKPOINT_PATH = REPO_ROOT / "data" / "checkpoints" / "630k-audioset-best.pt"
 OUT_ROOT = REPO_ROOT / "data" / "embeddings_630k_audioset"
 
 
