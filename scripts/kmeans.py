@@ -39,7 +39,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 
 AUDIO_DIR = REPO_ROOT / "data" / "audio"
 INDEX_PATH = REPO_ROOT / "data" / "metadata" / "audio_dataset_index.json"
-EMBEDDINGS_DIR = REPO_ROOT / "data" / "embeddings"
+EMBEDDINGS_DIR = REPO_ROOT / "data" / "embeddings_630k_audioset"
 
 OUTPUT_DIR = REPO_ROOT / "data" / "kmeans_results"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
