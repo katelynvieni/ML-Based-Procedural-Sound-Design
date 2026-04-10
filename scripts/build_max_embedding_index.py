@@ -3,16 +3,16 @@ Build segment-level CLAP embeddings + PCA16 JSON for Max/MSP.
 
 What this does
 --------------
-1. Reads labeled explosion segments from:
-   - data/audio/<category>/labeled/*.wav
-   - data/labels/<category>/*.txt
+1. Reads explosion segments from manual labels and/or K-means predicted labels:
+   - manual:    data/labels/<category>/*.txt
+   - predicted: data/kmeans_results/predicted_label_txt/<category>/*.txt
 
 2. Matches label txt files to wav files, including txt names with trailing _1234.
 
 3. Ignores macOS AppleDouble junk files like:
    - ._something.wav
 
-4. Extracts segment-level CLAP embeddings (512-D) for each labeled segment.
+4. Extracts segment-level CLAP embeddings (512-D) for each segment.
 
 5. Fits PCA -> 16-D, z-scores the PCA dimensions, and writes:
    - .npy CLAP embeddings
@@ -35,7 +35,7 @@ Outputs
 import json
 import re
 from pathlib import Path
-from collections import defaultdict, Counter
+from collections import defaultdict
 
 import numpy as np
 import soundfile as sf
@@ -46,9 +46,7 @@ from sklearn.linear_model import Ridge
 from sklearn.metrics import r2_score
 
 
-# ============================================================
 # CONFIG
-# ============================================================
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -56,6 +54,11 @@ CATEGORIES = ["chemical", "electrical", "fire", "space"]
 
 AUDIO_ROOT = ROOT / "data" / "audio"
 LABELS_ROOT = ROOT / "data" / "labels"
+PREDICTED_LABELS_ROOT = ROOT / "data" / "kmeans_results" / "predicted_label_txt"
+
+# Toggle these however you want
+PARSE_MANUAL_LABELS = True
+PARSE_PREDICTED_LABELS = False
 
 OUT_CLAP512 = ROOT / "data" / "embeddings" / "segments_clap512"
 OUT_PCA16 = ROOT / "data" / "embeddings" / "segments_pca16"
@@ -74,16 +77,12 @@ ENV_FOLDED_INTO = "roar"
 REQUIRE_EXACT_WAV_COUNT = False
 EXPECTED_WAVS_PER_CATEGORY = 30
 
-# ============================================================
+
 # CLAP CONFIG
-# ============================================================
 
 ENABLE_FUSION = False
-
-# Your checkpoint
 CLAP_CKPT_PATH = Path("/Users/katelynvieni/Downloads/630k-audioset-best.pt")
 
-# Try these model backbones with YOUR checkpoint until one loads.
 CLAP_AMODEL_CANDIDATES = [
     "HTSAT-tiny",
     "HTSAT-base",
@@ -91,9 +90,7 @@ CLAP_AMODEL_CANDIDATES = [
 ]
 
 
-# ============================================================
 # HELPERS
-# ============================================================
 
 def norm(s):
     return (s or "").strip().lower()
@@ -122,14 +119,9 @@ def normalize_stem_for_match(stem: str) -> str:
     return s
 
 
-def list_real_wavs(audio_dir: Path):
-    """
-    Ignore macOS AppleDouble sidecar files like:
-      ._whatever.wav
-    because they are not real audio.
-    """
+def list_real_wavs_recursive(audio_dir: Path):
     return [
-        p for p in audio_dir.glob("*.wav")
+        p for p in audio_dir.rglob("*.wav")
         if not p.name.startswith("._")
     ]
 
@@ -177,18 +169,56 @@ def to_segment_label(raw_label: str):
     return None
 
 
+def get_enabled_label_roots():
+    roots = []
+
+    if PARSE_MANUAL_LABELS:
+        roots.append(("manual", LABELS_ROOT))
+
+    if PARSE_PREDICTED_LABELS:
+        roots.append(("predicted", PREDICTED_LABELS_ROOT))
+
+    if not roots:
+        raise RuntimeError(
+            "Both PARSE_MANUAL_LABELS and PARSE_PREDICTED_LABELS are False. "
+            "Enable at least one label source."
+        )
+
+    return roots
+
+
+def iter_label_files_for_category(category: str):
+    for label_source, root in get_enabled_label_roots():
+        label_dir = root / category
+        if not label_dir.exists():
+            continue
+
+        for label_path in sorted(label_dir.glob("*.txt")):
+            yield label_source, label_path
+
+
 def find_audio_for_label(category: str, label_path: Path):
-    audio_dir = AUDIO_ROOT / category / "labeled"
+    """
+    Search all wav files under data/audio/<category>/ recursively.
+    This supports both:
+    - manual labels paired with /labeled wavs
+    - predicted labels paired with unlabeled wavs elsewhere in the category
+    """
+    audio_dir = AUDIO_ROOT / category
     if not audio_dir.exists():
         return None
 
-    direct = audio_dir / f"{label_path.stem}.wav"
-    if direct.exists() and not direct.name.startswith("._"):
-        return direct
+    direct_candidates = [
+        audio_dir / "labeled" / f"{label_path.stem}.wav",
+        audio_dir / f"{label_path.stem}.wav",
+    ]
+    for direct in direct_candidates:
+        if direct.exists() and not direct.name.startswith("._"):
+            return direct
 
     target = normalize_stem_for_match(label_path.stem)
     matches = [
-        p for p in list_real_wavs(audio_dir)
+        p for p in list_real_wavs_recursive(audio_dir)
         if normalize_stem_for_match(p.stem) == target
     ]
 
@@ -258,9 +288,7 @@ def minmax01(v: np.ndarray) -> np.ndarray:
     return (v - lo) / (hi - lo)
 
 
-# ============================================================
 # AUDIO FEATURES FOR LEARNED AXES
-# ============================================================
 
 def _safe_rms(x: np.ndarray) -> float:
     x = x.astype(np.float64, copy=False)
@@ -319,9 +347,7 @@ def extract_features_for_segment(audio_path: Path, start_s: float, end_s: float,
     }
 
 
-# ============================================================
 # CLAP
-# ============================================================
 
 def load_clap_model():
     """
@@ -401,9 +427,7 @@ def clap_embed_segment(model, wave: np.ndarray) -> np.ndarray:
     return emb
 
 
-# ============================================================
 # PASS 1: BUILD SEGMENT ITEMS + CLAP512 FILES
-# ============================================================
 
 def build_segment_items_and_clap():
     model, _device, selected_amodel = load_clap_model()
@@ -412,9 +436,13 @@ def build_segment_items_and_clap():
     uid = 0
 
     report = {
-        "version": "1.1",
+        "version": "1.3",
         "target_sr": TARGET_SR,
         "expected_wavs_per_category": EXPECTED_WAVS_PER_CATEGORY,
+        "label_sources_enabled": {
+            "manual": bool(PARSE_MANUAL_LABELS),
+            "predicted": bool(PARSE_PREDICTED_LABELS),
+        },
         "clap": {
             "enable_fusion": ENABLE_FUSION,
             "checkpoint_path": str(CLAP_CKPT_PATH),
@@ -432,34 +460,48 @@ def build_segment_items_and_clap():
     per_key_counter = defaultdict(int)
 
     for category in CATEGORIES:
-        label_dir = LABELS_ROOT / category
-        audio_dir = AUDIO_ROOT / category / "labeled"
-
-        if not label_dir.exists():
-            raise FileNotFoundError(f"Missing label dir: {label_dir}")
+        audio_dir = AUDIO_ROOT / category
         if not audio_dir.exists():
             raise FileNotFoundError(f"Missing audio dir: {audio_dir}")
 
         ensure_dir(OUT_CLAP512 / category)
         ensure_dir(OUT_PCA16 / category)
 
-        wavs_found = len(list_real_wavs(audio_dir))
-        labels_found = len(list(label_dir.glob("*.txt")))
+        wavs_found = len(list_real_wavs_recursive(audio_dir))
 
         report["counts"][category] = {
             "wavs_found": wavs_found,
-            "labels_found": labels_found,
             "wavs_used": 0,
             "segments_total": 0,
             "segments_by_label": {"ground": 0, "shock": 0, "roar": 0},
+            "segments_by_source": {"manual": 0, "predicted": 0},
+            "labels_found_manual": 0,
+            "labels_found_predicted": 0,
         }
+
+        if PARSE_MANUAL_LABELS:
+            report["counts"][category]["labels_found_manual"] = (
+                len(list((LABELS_ROOT / category).glob("*.txt")))
+                if (LABELS_ROOT / category).exists()
+                else 0
+            )
+
+        if PARSE_PREDICTED_LABELS:
+            report["counts"][category]["labels_found_predicted"] = (
+                len(list((PREDICTED_LABELS_ROOT / category).glob("*.txt")))
+                if (PREDICTED_LABELS_ROOT / category).exists()
+                else 0
+            )
 
         used_wav_stems = set()
 
-        for label_path in sorted(label_dir.glob("*.txt")):
+        for label_source, label_path in iter_label_files_for_category(category):
             audio_path = find_audio_for_label(category, label_path)
             if audio_path is None:
-                report["skipped"]["no_audio_match_for_label"].append(rel_posix(label_path))
+                report["skipped"]["no_audio_match_for_label"].append({
+                    "label_source": label_source,
+                    "label_file": rel_posix(label_path),
+                })
                 continue
 
             x, sr = load_audio_resampled(audio_path, TARGET_SR)
@@ -470,6 +512,7 @@ def build_segment_items_and_clap():
                 if parsed is None:
                     if line.strip():
                         report["skipped"]["bad_label_rows"].append({
+                            "label_source": label_source,
                             "label_file": rel_posix(label_path),
                             "line": line.strip()
                         })
@@ -483,6 +526,7 @@ def build_segment_items_and_clap():
                 duration_s = float(end_s - start_s)
                 if duration_s < MIN_SEGMENT_SECONDS:
                     report["skipped"]["segment_too_short"].append({
+                        "label_source": label_source,
                         "label_file": rel_posix(label_path),
                         "audio_file": rel_posix(audio_path),
                         "segment_label": segment_label,
@@ -493,18 +537,19 @@ def build_segment_items_and_clap():
                     })
                     continue
 
-                seg_i = per_key_counter[(category, audio_path.stem, segment_label)]
-                per_key_counter[(category, audio_path.stem, segment_label)] += 1
+                seg_i = per_key_counter[(category, audio_path.stem, segment_label, label_source)]
+                per_key_counter[(category, audio_path.stem, segment_label, label_source)] += 1
 
                 seg = safe_segment(x, sr, start_s, end_s)
                 emb512 = clap_embed_segment(model, seg)
 
-                emb512_path = OUT_CLAP512 / category / f"{audio_path.stem}__{segment_label}__{seg_i:02d}.npy"
+                suffix = "" if label_source == "manual" else "__pred"
+                emb512_path = OUT_CLAP512 / category / f"{audio_path.stem}__{segment_label}__{seg_i:02d}{suffix}.npy"
                 save_npy(emb512_path, emb512)
 
                 pca16_rel = (
                     Path("data") / "embeddings" / "segments_pca16" / category /
-                    f"{audio_path.stem}__{segment_label}__{seg_i:02d}__pca16.npy"
+                    f"{audio_path.stem}__{segment_label}__{seg_i:02d}{suffix}__pca16.npy"
                 )
 
                 item = {
@@ -513,6 +558,7 @@ def build_segment_items_and_clap():
                     "file_stem": audio_path.stem,
                     "audio_path": rel_posix(audio_path),
                     "label_path": rel_posix(label_path),
+                    "label_source": label_source,
                     "segment_label": segment_label,
                     "segment_index": int(seg_i),
                     "start_s": float(start_s),
@@ -531,6 +577,7 @@ def build_segment_items_and_clap():
 
                 report["counts"][category]["segments_total"] += 1
                 report["counts"][category]["segments_by_label"][segment_label] += 1
+                report["counts"][category]["segments_by_source"][label_source] += 1
 
             if found_any_segment:
                 used_wav_stems.add(audio_path.stem)
@@ -541,7 +588,8 @@ def build_segment_items_and_clap():
         print(
             f"[INFO] {category}: "
             f"wavs_found={report['counts'][category]['wavs_found']}, "
-            f"labels_found={report['counts'][category]['labels_found']}, "
+            f"manual_txt={report['counts'][category]['labels_found_manual']}, "
+            f"pred_txt={report['counts'][category]['labels_found_predicted']}, "
             f"wavs_used={report['counts'][category]['wavs_used']}, "
             f"segments_total={report['counts'][category]['segments_total']}"
         )
@@ -562,9 +610,7 @@ def build_segment_items_and_clap():
     return items, report
 
 
-# ============================================================
 # PASS 2: PCA16
-# ============================================================
 
 def compute_and_write_pca16(items):
     X512 = []
@@ -599,202 +645,188 @@ def compute_and_write_pca16(items):
         "output_zscored": True,
         "zscore_mean": z_mu.astype(float).tolist(),
         "zscore_std": z_sd.astype(float).tolist(),
+        "components": pca.components_.astype(float).tolist(),
     }
-
     return items, pca_meta
 
 
-# ============================================================
-# PASS 3: LEARN PARAM AXES
-# ============================================================
+# PASS 3: LEARN PARAMETER AXES
 
 def learn_param_axes(items):
-    X = []
-    feat_rows = []
+    """
+    Learn simple linear axes in PCA16 space for:
+    - intensity
+    - distance
 
+    Proxies:
+    - intensity ≈ rms_db + centroid_hz + hf_ratio - tail_ratio
+    - distance  ≈ -centroid_hz - hf_ratio + tail_ratio - rms_db
+
+    Learned separately per category+label, then pooled into a global axis
+    using all segments.
+    """
+    if not items:
+        return {}, {}
+
+    X = np.asarray([it["pca16"] for it in items], dtype=np.float32)
+
+    intensity_targets = []
+    distance_targets = []
+
+    feature_rows = []
     for it in items:
-        if "pca16" not in it:
-            continue
-
-        audio_path = ROOT / it["audio_path"]
-        if not audio_path.exists():
-            continue
-
         feats = extract_features_for_segment(
-            audio_path=audio_path,
-            start_s=float(it["start_s"]),
-            end_s=float(it["end_s"]),
-            target_sr=TARGET_SR,
+            ROOT / it["audio_path"],
+            float(it["start_s"]),
+            float(it["end_s"]),
+            TARGET_SR,
+        )
+        it["analysis_features"] = feats
+        feature_rows.append(feats)
+
+        intensity_proxy = (
+            feats["rms_db"]
+            + 0.001 * feats["centroid_hz"]
+            + 2.0 * feats["hf_ratio"]
+            - 1.0 * feats["tail_ratio"]
+        )
+        distance_proxy = (
+            -0.001 * feats["centroid_hz"]
+            - 2.0 * feats["hf_ratio"]
+            + 1.0 * feats["tail_ratio"]
+            - 0.25 * feats["rms_db"]
         )
 
-        X.append(np.asarray(it["pca16"], dtype=np.float64))
-        feat_rows.append(feats)
+        intensity_targets.append(intensity_proxy)
+        distance_targets.append(distance_proxy)
 
-    if len(X) < 20:
-        raise RuntimeError(f"Not enough segments with PCA/audio to learn axes. Got {len(X)}")
+    intensity_targets = minmax01(zscore(np.asarray(intensity_targets, dtype=np.float32)))
+    distance_targets = minmax01(zscore(np.asarray(distance_targets, dtype=np.float32)))
 
-    X = np.stack(X, axis=0)
+    for it, vi, vd in zip(items, intensity_targets, distance_targets):
+        it["proxy_intensity"] = float(vi)
+        it["proxy_distance"] = float(vd)
 
-    rms_db = np.array([r["rms_db"] for r in feat_rows], dtype=np.float64)
-    cent = np.array([r["centroid_hz"] for r in feat_rows], dtype=np.float64)
-    hf = np.array([r["hf_ratio"] for r in feat_rows], dtype=np.float64)
-    tail = np.array([r["tail_ratio"] for r in feat_rows], dtype=np.float64)
+    axes = {}
+    diagnostics = {}
 
-    intensity_raw = (
-        1.00 * zscore(rms_db) +
-        0.40 * zscore(cent) +
-        0.30 * zscore(hf) -
-        0.20 * zscore(tail)
-    )
-    intensity_t = minmax01(intensity_raw)
+    for axis_name, y in [("intensity", intensity_targets), ("distance", distance_targets)]:
+        model = Ridge(alpha=1.0, fit_intercept=True)
+        model.fit(X, y)
+        y_hat = model.predict(X)
 
-    distance_raw = (
-        0.70 * zscore(-cent) +
-        0.50 * zscore(-hf) +
-        0.35 * zscore(tail) +
-        0.10 * zscore(-rms_db)
-    )
-    distance_t = minmax01(distance_raw)
-
-    model_int = Ridge(alpha=1.0, fit_intercept=True)
-    model_dst = Ridge(alpha=1.0, fit_intercept=True)
-
-    model_int.fit(X, intensity_t)
-    model_dst.fit(X, distance_t)
-
-    pred_int = model_int.predict(X)
-    pred_dst = model_dst.predict(X)
-
-    param_axes = {
-        "intensity": {
-            "w": model_int.coef_.astype(float).tolist(),
-            "bias": float(model_int.intercept_),
-            "target_description": "0..1 proxy: louder/brighter/more transient = higher intensity",
-        },
-        "distance": {
-            "w": model_dst.coef_.astype(float).tolist(),
-            "bias": float(model_dst.intercept_),
-            "target_description": "0..1 proxy: duller/more tail/softer = farther distance",
+        axes[axis_name] = {
+            "w": model.coef_.astype(float).tolist(),
+            "bias": float(model.intercept_),
         }
-    }
-
-    diagnostics = {
-        "n_used": int(X.shape[0]),
-        "intensity_r2": float(r2_score(intensity_t, pred_int)),
-        "distance_r2": float(r2_score(distance_t, pred_dst)),
-        "feature_notes": {
-            "intensity": "proxy from rms_db + spectral centroid + HF ratio - tail ratio",
-            "distance": "proxy from -centroid - HF ratio + tail ratio - rms_db",
+        diagnostics[axis_name] = {
+            "r2": float(r2_score(y, y_hat)),
+            "target_min": float(np.min(y)),
+            "target_max": float(np.max(y)),
         }
-    }
 
-    return param_axes, diagnostics
-
-
-# ============================================================
-# PASS 4: AXIS STATS BY POOL
-# ============================================================
-
-def _project_axis(v16: np.ndarray, axis_w: np.ndarray, axis_b: float) -> float:
-    return float(np.dot(v16, axis_w) + axis_b)
+    return axes, diagnostics
 
 
-def build_axis_stats(items, param_axes):
-    axis_w_int = np.asarray(param_axes["intensity"]["w"], dtype=np.float64)
-    axis_b_int = float(param_axes["intensity"]["bias"])
+# PASS 4: AXIS STATS FOR JS RETRIEVAL
 
-    axis_w_dst = np.asarray(param_axes["distance"]["w"], dtype=np.float64)
-    axis_b_dst = float(param_axes["distance"]["bias"])
+def compute_axis_stats(items, param_axes):
+    """
+    Compute min/max projected values per category+label for each axis.
+    """
+    axis_stats = {}
 
-    pools = defaultdict(list)
+    if not param_axes:
+        return axis_stats
+
+    grouped = defaultdict(list)
     for it in items:
-        key = (it["category"], it["segment_label"])
-        pools[key].append(np.asarray(it["pca16"], dtype=np.float64))
+        grouped[(it["category"], it["segment_label"])].append(it)
 
-    out = {}
-    for (category, label), vecs in sorted(pools.items()):
-        vecs = np.stack(vecs, axis=0)
+    for (category, segment_label), rows in grouped.items():
+        entry = {}
+        for axis_name, axis in param_axes.items():
+            w = np.asarray(axis["w"], dtype=np.float32)
+            b = float(axis["bias"])
 
-        proj_i = np.array([_project_axis(v, axis_w_int, axis_b_int) for v in vecs], dtype=np.float64)
-        proj_d = np.array([_project_axis(v, axis_w_dst, axis_b_dst) for v in vecs], dtype=np.float64)
+            vals = []
+            for it in rows:
+                x = np.asarray(it["pca16"], dtype=np.float32)
+                vals.append(float(np.dot(x, w) + b))
 
-        k = f"{category}:{label}"
-        out[k] = {
-            "category": category,
-            "segment_label": label,
-            "n": int(len(vecs)),
-            "intensity": {
-                "min": float(np.min(proj_i)),
-                "max": float(np.max(proj_i)),
-                "mean": float(np.mean(proj_i)),
-                "std": float(np.std(proj_i) + 1e-12),
-            },
-            "distance": {
-                "min": float(np.min(proj_d)),
-                "max": float(np.max(proj_d)),
-                "mean": float(np.mean(proj_d)),
-                "std": float(np.std(proj_d) + 1e-12),
-            },
-        }
+            vals = np.asarray(vals, dtype=np.float32)
+            entry[axis_name] = {
+                "min": float(np.min(vals)) if len(vals) else 0.0,
+                "max": float(np.max(vals)) if len(vals) else 1.0,
+                "mean": float(np.mean(vals)) if len(vals) else 0.0,
+                "std": float(np.std(vals)) if len(vals) else 1.0,
+            }
 
-    return out
+        axis_stats[f"{category}:{segment_label}"] = entry
+
+    return axis_stats
 
 
-# ============================================================
-# MAIN
-# ============================================================
+# PASS 5: WRITE FINAL JSON
 
-def main():
-    items, report = build_segment_items_and_clap()
-    items, pca_meta = compute_and_write_pca16(items)
-    param_axes, diagnostics = learn_param_axes(items)
-    axis_stats = build_axis_stats(items, param_axes)
-
+def write_final_json(items, report, pca_meta, param_axes, param_axes_diagnostics, axis_stats):
     out = {
         "version": "1.3",
         "target_sr": TARGET_SR,
         "label_rules": {
-            "allowed": ["ground", "shock", "roar"],
+            "allowed": sorted(list(ALLOWED)),
             "env_folded_into": ENV_FOLDED_INTO,
             "debris_ignored": True,
         },
-        "pca16": pca_meta,
+        "label_sources_enabled": {
+            "manual": bool(PARSE_MANUAL_LABELS),
+            "predicted": bool(PARSE_PREDICTED_LABELS),
+        },
+        "counts": report.get("counts", {}),
+        "pca16": {
+            "n_components": pca_meta["n_components"],
+            "explained_variance_ratio_sum": pca_meta["explained_variance_ratio_sum"],
+            "input_l2_normalized": pca_meta["input_l2_normalized"],
+            "output_zscored": pca_meta["output_zscored"],
+        },
         "param_axes": param_axes,
-        "param_axes_diagnostics": diagnostics,
-        "axis_stats": axis_stats,
+        "param_axes_diagnostics": param_axes_diagnostics,
         "axisStats": axis_stats,
         "items": items,
     }
 
     ensure_dir(OUT_JSON_META.parent)
-    OUT_JSON_META.write_text(json.dumps(out, indent=2), encoding="utf-8")
-    print(f"[OK] Wrote {rel_posix(OUT_JSON_META)} with {len(items)} segments")
-
     ensure_dir(OUT_JSON_COPY.parent)
+
+    OUT_JSON_META.write_text(json.dumps(out, indent=2), encoding="utf-8")
     OUT_JSON_COPY.write_text(json.dumps(out, indent=2), encoding="utf-8")
+
+    print(f"[OK] Wrote {rel_posix(OUT_JSON_META)} with {len(items)} segments")
     print(f"[OK] Wrote {rel_posix(OUT_JSON_COPY)} with {len(items)} segments")
 
+
+# MAIN
+
+def main():
+    print("=" * 60)
+    print("BUILD SEGMENT EMBEDDINGS + PCA16 JSON FOR MAX")
+    print("=" * 60)
+    print(f"ROOT: {ROOT}")
+    print(f"AUDIO_ROOT: {AUDIO_ROOT}")
+    print(f"LABELS_ROOT: {LABELS_ROOT}")
+    print(f"PREDICTED_LABELS_ROOT: {PREDICTED_LABELS_ROOT}")
+    print(f"PARSE_MANUAL_LABELS: {PARSE_MANUAL_LABELS}")
+    print(f"PARSE_PREDICTED_LABELS: {PARSE_PREDICTED_LABELS}")
+    print(f"OUT_JSON_META: {OUT_JSON_META}")
+
+    items, report = build_segment_items_and_clap()
+    items, pca_meta = compute_and_write_pca16(items)
+    param_axes, param_axes_diagnostics = learn_param_axes(items)
+    axis_stats = compute_axis_stats(items, param_axes)
+    write_final_json(items, report, pca_meta, param_axes, param_axes_diagnostics, axis_stats)
+
     print(f"[OK] PCA16 variance explained (sum): {pca_meta['explained_variance_ratio_sum']:.4f}")
-
-    print("\nAxis learning diagnostics:")
-    for k, v in diagnostics.items():
-        print(f"  {k}: {v}")
-
-    c = Counter((it["category"], it["segment_label"]) for it in items)
-    print("\nCounts by (category, segment_label):")
-    for (cat, lbl), n in sorted(c.items()):
-        print(f"  {cat:12s} {lbl:6s} {n}")
-
-    print("\nCounts by category:")
-    for cat in CATEGORIES:
-        row = report["counts"].get(cat, {})
-        print(
-            f"  {cat:12s} "
-            f"wavs_found={row.get('wavs_found', 0)} "
-            f"labels_found={row.get('labels_found', 0)} "
-            f"wavs_used={row.get('wavs_used', 0)} "
-            f"segments_total={row.get('segments_total', 0)}"
-        )
+    print("[DONE]")
 
 
 if __name__ == "__main__":
