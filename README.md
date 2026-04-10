@@ -1,39 +1,31 @@
 # ML-Based-Procedural-Sound-Design
 
-## Dataset
-The explosion audio files are hosted separately on Hugging Face due to file size limitations on GitHub. The dataset can be downloaded from: https://huggingface.co/datasets/krvieni/ML-Based-Procedural-Sound-Design/resolve/main/explosion_dataset.zip
+## Requirements
 
-After downloading, place the audio files inside `data/audio/` so the project structure is:
+This project requires:
 
-```
-data/
-├── audio/
-├── labels/
-└── metadata/
-```
+- Python 3.10+ and the packages listed in `requirements.txt`
+- Max/MSP 9.1 or later for running the interactive synthesis patch
+- external project files downloaded separately from Hugging Face
 
-The labels and metadata are already included in this repository. Audio filenames should remain unchanged so they continue to correspond correctly with the provided labels.
+## External Files Required
 
-## CLAP Checkpoint
-Audio embeddings in this project were generated using the LAION-CLAP checkpoint 630k-audioset-best.pt The checkpoint can be downloaded from:
+The following files are not included in this GitHub repository and must be downloaded separately from Hugging Face for reproduction:
 
-https://huggingface.co/datasets/krvieni/ML-Based-Procedural-Sound-Design/resolve/main/630k-audioset-best.pt
+- CLAP checkpoint: place locally at `data/checkpoints/630k-audioset-best.pt`
+- Explosion dataset: place locally in `data/audio/`
+- Precomputed Embeddings and K-means outputs: place in the appropriate `data/` subfolders 
 
-For reproduibility, place the file in:
-[data/checkpoints/630k-audioset-best.pt]
+Download all external project files here: [https://huggingface.co/datasets/krvieni/ML-Based-Procedural-Sound-Design/tree/main]
 
-## CLAP Embeddings
+## Setup
 
-Due to file size constraints, the CLAP audio embeddings generated for this project are hosted externally on Hugging Face, hosted at this link: 
-
-https://huggingface.co/datasets/krvieni/ML-Based-Procedural-Sound-Design/resolve/main/embeddings_630k_audioset.zip
-
-The embeddings preserve the original folder structure used during processing. 
-
-## K Means Predictions 
-
-The predicted segments and output audio are hosted at this link: 
-
-https://huggingface.co/datasets/krvieni/ML-Based-Procedural-Sound-Design/resolve/main/kmeans_results.zip
-
-
+1. Clone this repository.
+2. Create and activate a Python virtual environment.
+3. Install the packages in `requirements.txt`.
+4. Install Max/MSP 9.1 or later if you want to run the interactive synthesis patch.
+5. Download the CLAP checkpoint and dataset from Hugging Face: [LINK HERE]
+6. Place the CLAP checkpoint at `data/checkpoints/630k-audioset-best.pt`.
+7. Place the explosion dataset in `data/audio/`.
+8. If you want to use the provided precomputed results, download the embeddings and K-means outputs from Hugging Face and place them in the expected `data/` subfolders.
+9. Otherwise, generate those files yourself by running the Python scripts below.
