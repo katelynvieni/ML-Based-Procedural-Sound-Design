@@ -14,19 +14,17 @@ from sklearn.preprocessing import normalize
 
 warnings.filterwarnings("ignore")
 
-# =========================
 # CONFIG
-# =========================
+
 VALID_CATEGORIES = {"chemical", "electrical", "fire", "space"}
 TARGET_LABELS = ["ground", "shock", "roar"]
 
-# this script is in scripts/evaluation/, so parents[2] is repo root
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
 AUDIO_DIR = REPO_ROOT / "data" / "audio"
 INDEX_PATH = REPO_ROOT / "data" / "metadata" / "audio_dataset_index.json"
 
-# your current embeddings folder name
+# current embeddings folder name
 EMBEDDINGS_DIR = REPO_ROOT / "data" / "embeddings_630k_audioset"
 
 KMEANS_DIR = REPO_ROOT / "data" / "kmeans_results"
@@ -36,9 +34,8 @@ OUT_DIR = REPO_ROOT / "evaluation" / "Kmeans_groupfold"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 
-# =========================
 # Helpers
-# =========================
+
 def load_index():
     with open(INDEX_PATH, "r") as f:
         data = json.load(f)
@@ -227,9 +224,9 @@ def rebuild_labeled_windows_X_meta():
     return X, meta
 
 
-# =========================
+
 # Plots
-# =========================
+
 def plot_avg_confusion_row_norm(df, out_path):
     folds = sorted(df["fold"].unique())
     cm_sum = np.zeros((len(TARGET_LABELS), len(TARGET_LABELS)), dtype=float)
@@ -396,9 +393,8 @@ def plot_one_scatter_pca(df, out_path):
     plt.close(fig)
 
 
-# =========================
 # MAIN
-# =========================
+
 def main():
     print("REPO_ROOT:", REPO_ROOT)
     print("CV_PRED_PATH:", CV_PRED_PATH)
