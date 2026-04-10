@@ -6,7 +6,7 @@ Inputs:
 - data/metadata/audio_dataset_index.json
 - data/audio/...
 
-Outputs (created):
+Outputs:
 - data/embeddings_630k_audioset/<category>/<stem>_emb.npy   (shape: 4, D)
 - data/embeddings_630k_audioset/<category>/<stem>_meta.json
 """
@@ -28,9 +28,8 @@ except ImportError:
         "  pip install laion-clap\n"
     )
 
-# ============================================================================
+
 # CONFIGURATION
-# ============================================================================
 
 SR = 48000
 VALID_CATEGORIES = {"chemical", "electrical", "fire", "space"}
@@ -42,9 +41,7 @@ CHECKPOINT_PATH = Path.home() / "Downloads" / "630k-audioset-best.pt"
 OUT_ROOT = REPO_ROOT / "data" / "embeddings_630k_audioset"
 
 
-# ============================================================================
 # AUDIO QUANTIZATION HELPERS
-# ============================================================================
 
 def int16_to_float32(x: np.ndarray) -> np.ndarray:
     return (x / 32767.0).astype(np.float32)
@@ -54,9 +51,7 @@ def float32_to_int16(x: np.ndarray) -> np.ndarray:
     return (x * 32767.0).astype(np.int16)
 
 
-# ============================================================================
 # SETUP
-# ============================================================================
 
 def setup_output_directories() -> None:
     OUT_ROOT.mkdir(parents=True, exist_ok=True)
@@ -73,7 +68,6 @@ def load_clap_model():
         )
 
     print("Loading CLAP model...")
-    # CHANGED: try HTSAT-tiny instead of HTSAT-base
     model = laion_clap.CLAP_Module(enable_fusion=False, amodel="HTSAT-tiny")
     model.load_ckpt(str(CHECKPOINT_PATH))
     model.eval()
@@ -103,9 +97,7 @@ def load_index() -> List[Dict[str, Any]]:
     return items
 
 
-# ============================================================================
 # WINDOWING + PATH HELPERS
-# ============================================================================
 
 def four_equal_windows(y: np.ndarray, sr: int) -> List[Tuple[float, float, np.ndarray]]:
     n = len(y)
@@ -177,9 +169,7 @@ def resolve_audio_path(item: Dict[str, Any]) -> Optional[Path]:
     return None
 
 
-# ============================================================================
 # PROCESSING + SAVING
-# ============================================================================
 
 def process_audio_file(
     audio_path: Path,
@@ -234,9 +224,7 @@ def save_embeddings(
         json.dump(metadata, f, indent=2)
 
 
-# ============================================================================
 # MAIN
-# ============================================================================
 
 def main() -> None:
     print(">>> ENTERED main()")
