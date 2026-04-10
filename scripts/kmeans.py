@@ -1,12 +1,16 @@
 """
-K-Means segmentation for ground/shock/roar using CLAP embeddings.
+K-Means clustering and segmentation for ground/shock/roar using CLAP embeddings.
 
-- L2-normalizes vectors (cosine-style KMeans via Euclidean on L2-normalized vectors)
-- GroupKFold train/test on LABELED windows (grouped by file path; no leakage)
-- Saves fold test predictions (no metrics here; evaluate separately)
-- Trains final model on all labeled windows
-- Predicts unlabeled files
-- Exports segmented audio .wav files for playback
+This script L2-normalizes vectors (cosine-style KMeans via Euclidean on L2-normalized vectors), 
+does a groupKFold train/test on LABELED windows (grouped by file path; no leakage), saves fold 
+test predictions, trains final model on all labeled windows and predicts unlabeled files.
+
+Outputs:
+- data/kmeans_results/cv_fold_predictions_groupkfold.json
+- data/kmeans_results/kmeans_model.npz
+- data/kmeans_results/predicted_segments.json
+- data/kmeans_results/predicted_label_txt/<category>/<stem>.txt
+- data/kmeans_results/segmented_audio/<category>/<stem>/<label>/*.wav
 """
 
 import json
@@ -25,9 +29,7 @@ from sklearn.preprocessing import normalize
 
 warnings.filterwarnings("ignore")
 
-# ============================================================================
 # CONFIGURATION
-# ============================================================================
 
 SR = 48000
 VALID_CATEGORIES = {"chemical", "electrical", "fire", "space"}
@@ -45,6 +47,9 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 SEGMENTS_AUDIO_DIR = OUTPUT_DIR / "segmented_audio"
 SEGMENTS_AUDIO_DIR.mkdir(parents=True, exist_ok=True)
 
+PRED_LABELS_DIR = OUTPUT_DIR / "predicted_label_txt"
+PRED_LABELS_DIR.mkdir(parents=True, exist_ok=True)
+
 # KMeans params
 N_CLUSTERS = 3
 RANDOM_STATE = 42
@@ -52,21 +57,17 @@ N_INIT = 20
 MAX_ITER = 500
 
 # Cross-validation (file-grouped)
-K_FOLDS = 5 
+K_FOLDS = 5
 
-# ============================================================================
 # HELPERS
-# ============================================================================
 
 def load_index():
     with open(INDEX_PATH, "r") as f:
         data = json.load(f)
 
-    # Your format: {"data": [ ... ]}
     if isinstance(data, dict) and "data" in data and isinstance(data["data"], list):
         return data["data"]
 
-    # Back-compat formats
     if isinstance(data, dict) and "items" in data and isinstance(data["items"], list):
         return data["items"]
 
@@ -82,14 +83,13 @@ def load_index():
 
 
 def normalize_vectors(vectors: np.ndarray) -> np.ndarray:
-    """L2 normalize vectors."""
     return normalize(vectors, norm="l2", axis=1)
 
 
 def parse_segment_pairs(seg_data):
     """
     Supports:
-      - [{"start": s, "end": e}, ...]   (YOUR JSON)
+      - [{"start": s, "end": e}, ...]
       - [[s,e], [s,e], ...]
       - [s,e]
     Returns list[(s,e)] as floats.
@@ -99,7 +99,6 @@ def parse_segment_pairs(seg_data):
 
     pairs = []
 
-    # list of dict segments
     if isinstance(seg_data, list) and seg_data and isinstance(seg_data[0], dict):
         for obj in seg_data:
             s = obj.get("start")
@@ -108,12 +107,10 @@ def parse_segment_pairs(seg_data):
                 pairs.append((float(s), float(e)))
         return pairs
 
-    # [s, e]
     if isinstance(seg_data, list) and len(seg_data) == 2 and all(isinstance(x, (int, float)) for x in seg_data):
         s, e = seg_data
         return [(float(s), float(e))] if e > s else []
 
-    # [[s,e], ...]
     if isinstance(seg_data, list):
         for item in seg_data:
             if isinstance(item, list) and len(item) == 2:
@@ -126,7 +123,6 @@ def parse_segment_pairs(seg_data):
 
 
 def get_window_label(window_start, window_end, segments_dict):
-    """Label by whether window center falls inside a labeled segment."""
     center = (window_start + window_end) / 2.0
     for label in TARGET_LABELS:
         pairs = parse_segment_pairs(segments_dict.get(label))
@@ -137,10 +133,6 @@ def get_window_label(window_start, window_end, segments_dict):
 
 
 def get_audio_relpath(item: dict) -> str:
-    """
-    Prefer relative_path like: chemical/labeled/foo.wav
-    Fall back to path like: data/audio/chemical/labeled/foo.wav
-    """
     rel = item.get("relative_path") or item.get("relpath") or ""
     if rel:
         return rel
@@ -150,15 +142,12 @@ def get_audio_relpath(item: dict) -> str:
         p = p.replace("\\", "/")
         if "data/audio/" in p:
             return p.split("data/audio/")[-1]
-        return p  # may already be relative-ish
+        return p
 
     return ""
 
 
 def find_audio_path_from_item(item: dict) -> Path:
-    """
-    Uses relative_path or path from JSON to find the wav under repo.
-    """
     rel = get_audio_relpath(item)
     if rel:
         candidate = AUDIO_DIR / rel
@@ -171,7 +160,6 @@ def find_audio_path_from_item(item: dict) -> Path:
         if p2.exists():
             return p2
 
-    # last resort: try by filename anywhere under data/audio
     fn = item.get("filename", "")
     if fn:
         hits = list(AUDIO_DIR.rglob(fn))
@@ -192,7 +180,7 @@ def find_embedding_file_from_item(item: dict) -> Path | None:
     candidates = [
         f"{stem}.npy",
         f"{stem}_emb.npy",
-        f"{wav_name}.npy",      
+        f"{wav_name}.npy",
         f"{wav_name}_emb.npy",
     ]
 
@@ -205,17 +193,11 @@ def find_embedding_file_from_item(item: dict) -> Path | None:
 
 
 def load_embedding_with_bounds(embedding_path: Path, item: dict):
-    """
-    Returns (emb, bounds) where bounds is a list of (start,end) per embedding row.
-    If *_bounds.npy exists, use it.
-    Otherwise infer bounds uniformly across audio duration.
-    """
     emb = np.load(embedding_path).astype(np.float32)
     T = len(emb)
     if T == 0:
         return emb, None
 
-    # 1) Try explicit bounds files first (if you ever generate them later)
     stem = embedding_path.stem
     candidates = [
         embedding_path.with_name(f"{stem}_bounds.npy"),
@@ -228,7 +210,6 @@ def load_embedding_with_bounds(embedding_path: Path, item: dict):
         if bounds.ndim == 2 and bounds.shape[1] == 2 and len(bounds) == T:
             return emb, [(float(s), float(e)) for s, e in bounds]
 
-    # 2) Infer bounds from duration (uniform windows across file)
     duration = item.get("duration", None)
 
     if not isinstance(duration, (int, float)) or duration <= 0:
@@ -306,6 +287,34 @@ def write_segments_to_wav(audio_path: Path, segments_pred: dict, out_base_dir: P
             sf.write(out_path, chunk, sr)
 
 
+def write_predicted_labels_txt(out_txt_path: Path, segments_pred: dict):
+    """
+    Writes predicted segments in the same txt layout as the manual label files:
+      <idx> <start_s> <Label> <col4> <end_s> <col6>
+
+    Example:
+      1 0.00000000000000 Ground 1 0.18679659645623 0
+    """
+    out_txt_path.parent.mkdir(parents=True, exist_ok=True)
+
+    rows = []
+    idx = 1
+
+    for label in TARGET_LABELS:
+        for start_s, end_s in segments_pred.get(label, []):
+            start_s = float(start_s)
+            end_s = float(end_s)
+            if end_s <= start_s:
+                continue
+
+            rows.append(
+                f"{idx} {start_s:.14f} {label.capitalize()} 1 {end_s:.14f} 0"
+            )
+            idx += 1
+
+    out_txt_path.write_text("\n".join(rows) + "\n", encoding="utf-8")
+
+
 def fit_kmeans(X_train_norm: np.ndarray) -> KMeans:
     kmeans = KMeans(
         n_clusters=N_CLUSTERS,
@@ -318,7 +327,6 @@ def fit_kmeans(X_train_norm: np.ndarray) -> KMeans:
 
 
 def build_cluster_to_label_mapping(y_true: np.ndarray, cluster_ids: np.ndarray) -> dict[int, str]:
-    """Hungarian match between cluster IDs and true labels."""
     label_to_idx = {lab: i for i, lab in enumerate(TARGET_LABELS)}
     confusion = np.zeros((len(TARGET_LABELS), N_CLUSTERS), dtype=float)
 
@@ -329,9 +337,7 @@ def build_cluster_to_label_mapping(y_true: np.ndarray, cluster_ids: np.ndarray) 
     return {int(c): TARGET_LABELS[r] for r, c in zip(row_ind, col_ind)}
 
 
-# ============================================================================
 # LOAD LABELED WINDOWS (FOR CV + TRAINING)
-# ============================================================================
 
 def load_labeled_windows_with_meta():
     """
@@ -388,7 +394,7 @@ def load_labeled_windows_with_meta():
                         "embedding_file": emb_path.name,
                     }
                 )
-                groups_list.append(rel)  # group by file
+                groups_list.append(rel)
                 counts[lab] += 1
 
     print(f"Loaded labeled windows from {len(labeled_files_seen)} labeled files")
@@ -406,9 +412,7 @@ def load_labeled_windows_with_meta():
     )
 
 
-# ============================================================================
-# GROUP K-FOLD TRAIN/TEST 
-# ============================================================================
+# GROUP K-FOLD TRAIN/TEST
 
 def group_kfold_train_test(X: np.ndarray, y: np.ndarray, meta: list[dict], groups: np.ndarray, labeled_files: set):
     n_groups = len(labeled_files)
@@ -461,13 +465,11 @@ def group_kfold_train_test(X: np.ndarray, y: np.ndarray, meta: list[dict], group
     return folds_out
 
 
-# ============================================================================
-# FINAL TRAIN ON ALL LABELED + PREDICT UNLABELED + EXPORT AUDIO
-# ============================================================================
+# FINAL TRAIN ON ALL LABELED + PREDICT UNLABELED + EXPORT AUDIO + TXT LABELS
 
 def train_final_and_export_unlabeled(X: np.ndarray, y: np.ndarray):
     print("\n" + "=" * 60)
-    print("TRAIN FINAL MODEL (ALL LABELED) + PREDICT UNLABELED + EXPORT WAV")
+    print("TRAIN FINAL MODEL (ALL LABELED) + PREDICT UNLABELED + EXPORT WAV/TXT")
     print("=" * 60)
 
     Xn = normalize_vectors(X)
@@ -488,10 +490,11 @@ def train_final_and_export_unlabeled(X: np.ndarray, y: np.ndarray):
     index = load_index()
     predictions = {}
     processed = 0
+    txt_written = 0
 
     for item in index:
         if item.get("labeled", False):
-            continue  # unlabeled only
+            continue
 
         category = item.get("category", "")
         if category not in VALID_CATEGORIES:
@@ -517,6 +520,10 @@ def train_final_and_export_unlabeled(X: np.ndarray, y: np.ndarray):
         predictions[rel] = segments_pred
         processed += 1
 
+        pred_txt_path = PRED_LABELS_DIR / category / f"{Path(rel).stem}.txt"
+        write_predicted_labels_txt(pred_txt_path, segments_pred)
+        txt_written += 1
+
         try:
             audio_path = find_audio_path_from_item(item)
             out_dir = SEGMENTS_AUDIO_DIR / category / Path(rel).stem
@@ -528,13 +535,13 @@ def train_final_and_export_unlabeled(X: np.ndarray, y: np.ndarray):
     pred_path = OUTPUT_DIR / "predicted_segments.json"
     with open(pred_path, "w") as f:
         json.dump(predictions, f, indent=2)
+
     print(f"\nSaved unlabeled predictions to: {pred_path}")
+    print(f"Wrote predicted txt labels for {txt_written} unlabeled files to: {PRED_LABELS_DIR}")
     print(f"Exported segmented audio for {processed} unlabeled files to: {SEGMENTS_AUDIO_DIR}")
 
 
-# ============================================================================
 # MAIN
-# ============================================================================
 
 def main():
     print("=" * 60)
