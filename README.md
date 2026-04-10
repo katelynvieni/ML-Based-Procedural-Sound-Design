@@ -69,7 +69,11 @@ Evaluation scripts are located in:
 
 - `scripts/evaluation/eval_CLAP_windows.py`
 - `scripts/evaluation/eval_kmeans_groupfold.py`
-- `scripts/evaluation/plot_max_eval.py` (any generated audio from the Max/MSP patch should be placed in `data/eval_audio/` before running the evaluation script
+- `scripts/evaluation/plot_max_eval.py`
+
+## Max Output Evaluation
+
+The script `scripts/evaluation/plot_max_eval.py` generates waveform, envelope, and spectrogram figures from recorded Max/MSP outputs. The default version is set up for the evaluation examples used in this project, but the input paths, filenames, and comparison groups can be modified to match other recordings or custom evaluation cases.
 
 ## Running the Max/MSP System
 
