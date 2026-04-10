@@ -1,5 +1,5 @@
 """
-Builds a repo-relative JSON index of the explosion audio dataset for analysis and clustering.
+Builds JSON index of the explosion audio dataset for analysis and clustering.
 
 This script scans the dataset folders, collects audio metadata, and parses matching .txt
 annotation files for labeled audio. It stores file-level information for both labeled and
@@ -16,15 +16,12 @@ import librosa
 
 class AudioDatasetIndexer:
     def __init__(self, repo_root: Path, assets_rel: Path, labels_rel: Path, output_rel: Path):
-        # Repo root is used as the anchor 
         self.repo_root = repo_root.resolve()
 
-        # Absolute paths for reading/writing on the local machine (not written into JSON)
         self.assets_path = (self.repo_root / assets_rel).resolve()
         self.labels_path = (self.repo_root / labels_rel).resolve()
         self.output_path = (self.repo_root / output_rel).resolve()
 
-        # Repo-relative strings that get written into the index JSON
         self.assets_rel = assets_rel.as_posix()
         self.labels_rel = labels_rel.as_posix()
         self.output_rel = output_rel.as_posix()
@@ -33,8 +30,6 @@ class AudioDatasetIndexer:
 
     def parse_label_file(self, label_path: Path) -> Optional[Dict]:
         """
-        Parses a label .txt file into segment time ranges.
-
         Expected line format:
             1 0.0000000000000000 Ground 1 0.18679659645623 0
 
@@ -72,11 +67,10 @@ class AudioDatasetIndexer:
                     except (ValueError, IndexError):
                         continue
 
-            # Treat env as part of the roar layer
+            # Fold env into roar
             segments["roar"].extend(segments["env"])
             del segments["env"]
 
-            # Keep only segment types that actually have entries
             segments = {k: v for k, v in segments.items() if v}
             return segments if segments else None
 
@@ -136,7 +130,6 @@ class AudioDatasetIndexer:
         return entry
 
     def scan_directory(self, directory: Path, category: str, subcategory: str, is_labeled: bool) -> List[Dict]:
-        """Scans a single folder for audio files and returns index entries."""
         entries: List[Dict] = []
 
         if not directory.exists():
@@ -144,7 +137,6 @@ class AudioDatasetIndexer:
             return entries
 
         for audio_file in directory.iterdir():
-            # macOS leaves these behind on external drives / zips sometimes
             if audio_file.name.startswith("._") or audio_file.name == ".DS_Store":
                 continue
 
@@ -157,7 +149,6 @@ class AudioDatasetIndexer:
         return entries
 
     def generate_index(self) -> Dict:
-        """Walks the dataset and builds the full JSON index."""
         index = {
             "metadata": {
                 "version": "1.0",
@@ -198,7 +189,6 @@ class AudioDatasetIndexer:
         return index
 
     def save_index(self, index: Dict):
-        """Writes the index JSON to the output folder."""
         self.output_path.mkdir(parents=True, exist_ok=True)
         output_file = self.output_path / "audio_dataset_index.json"
 
@@ -213,7 +203,6 @@ class AudioDatasetIndexer:
 
 
 def main():
-    # Treat the repo as the anchor: <repo>/scripts/index_dataset.py -> repo root is one level up
     script_path = Path(__file__).resolve()
     repo_root = script_path.parent
     if repo_root.name.lower() in {"scripts", "script"}:
