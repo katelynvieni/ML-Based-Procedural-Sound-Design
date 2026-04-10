@@ -1,11 +1,5 @@
 """
-Evaluate ONLY 512-D CLAP embeddings (4 equal windows per original audio file).
-
-Expected repo layout:
-- data/metadata/audio_dataset_index.json
-- data/audio/...
-- data/embeddings_630k_audioset/<category>/<stem>_emb.npy
-- data/embeddings_630k_audioset/<category>/<stem>_meta.json
+Evaluate 4-window 512-D CLAP embeddings
 
 Outputs:
 - evaluation/CLAP_windows/metrics.json
@@ -29,10 +23,8 @@ from sklearn.neighbors import NearestNeighbors
 VALID_LABELS = ("ground", "shock", "roar")
 LABEL_TO_ID = {lab: i for i, lab in enumerate(VALID_LABELS)}
 
-
-# -----------------------------
 # Index helpers
-# -----------------------------
+
 def load_index_items(index_path: Path) -> List[Dict[str, Any]]:
     with index_path.open("r", encoding="utf-8") as f:
         root = json.load(f)
@@ -51,13 +43,6 @@ def load_index_items(index_path: Path) -> List[Dict[str, Any]]:
 
 
 def resolve_repo_root(repo_root_arg: Optional[str]) -> Path:
-    """
-    This script lives in:
-        repo/scripts/evaluation/eval_CLAP_windows.py
-
-    So:
-        Path(__file__).resolve().parents[2] == repo root
-    """
     if repo_root_arg:
         return Path(repo_root_arg).expanduser().resolve()
 
@@ -109,9 +94,8 @@ def get_category(item: Dict[str, Any], audio_path: Optional[Path], assets_dir: P
     return "other"
 
 
-# -----------------------------
 # Embedding loading
-# -----------------------------
+
 def load_embedding_pair(
     emb_root: Path,
     category: str,
@@ -140,9 +124,8 @@ def load_embedding_pair(
     return emb.astype(np.float32), meta
 
 
-# -----------------------------
 # Label assignment
-# -----------------------------
+
 def normalize_segments(segments_obj: Any) -> Dict[str, List[Tuple[float, float]]]:
     out: Dict[str, List[Tuple[float, float]]] = {k: [] for k in VALID_LABELS}
 
@@ -219,9 +202,8 @@ def assign_window_label(
     return None
 
 
-# -----------------------------
 # Build labeled window dataset
-# -----------------------------
+
 def build_labeled_windows(
     repo_root: Path,
     index_path: Path,
@@ -324,9 +306,8 @@ def build_labeled_windows(
     return X, y, rows
 
 
-# -----------------------------
-# 1-NN cosine leave-one-out
-# -----------------------------
+# 1-NN cosine
+
 def nn_leave_one_out_cosine(X: np.ndarray, y: np.ndarray) -> Dict[str, Any]:
     nn = NearestNeighbors(n_neighbors=2, metric="cosine")
     nn.fit(X)
@@ -355,9 +336,8 @@ def nn_leave_one_out_cosine(X: np.ndarray, y: np.ndarray) -> Dict[str, Any]:
     }
 
 
-# -----------------------------
 # Plots
-# -----------------------------
+
 def plot_2d(out_path: Path, coords: np.ndarray, y: np.ndarray, title: str) -> None:
     plt.figure(figsize=(8, 6))
     for lab_id, lab in enumerate(VALID_LABELS):
@@ -454,15 +434,13 @@ def plot_accuracy_summary(
     plt.close()
 
 
-# -----------------------------
 # Main
-# -----------------------------
+
 def main() -> None:
     ap = argparse.ArgumentParser()
 
     ap.add_argument("--repo_root", type=str, default=None, help="Repo root (optional).")
 
-    # Fixed for your current repo layout
     ap.add_argument(
         "--index",
         type=str,
