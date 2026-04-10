@@ -75,4 +75,4 @@ Evaluation scripts are located in:
 
 To run the interactive system, open the main Max/MSP patch.
 
-If you downloaded the prepared Max/MSP project, you can use it directly without cloning this repository or running the Python scripts.## 
+If you downloaded the prepared Max/MSP project, you can use it directly without cloning this repository or running the Python scripts.
