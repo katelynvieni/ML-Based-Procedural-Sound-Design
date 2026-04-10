@@ -1,3 +1,15 @@
+"""
+Generate Max/MSP output plots 
+
+Outputs:
+- eval_figures/fig_intensity_waveform_envelope.png
+- eval_figures/fig_distance_spectrogram.png
+- eval_figures/fig_duration_waveform_envelope.png
+- eval_figures/fig_baseline_generated_spectrogram.png
+- eval_figures/fig_baseline_generated_waveform_envelope.png
+
+"""
+
 from pathlib import Path
 import numpy as np
 import librosa
@@ -59,7 +71,6 @@ def amplitude_envelope(y, frame_length=1024, hop_length=256):
 def align_to_onset(y, sr=TARGET_SR, threshold_ratio=0.12, frame_length=1024, hop_length=256, pre_roll_ms=5):
     """
     Trim leading silence / offset so the first strong onset begins near time 0.
-    Keeps a tiny pre-roll so the transient does not look chopped.
     """
     if len(y) == 0:
         return y
