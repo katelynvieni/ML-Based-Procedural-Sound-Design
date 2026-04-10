@@ -20,7 +20,7 @@ Audio embeddings in this project were generated using the LAION-CLAP checkpoint 
 https://huggingface.co/datasets/krvieni/ML-Based-Procedural-Sound-Design/resolve/main/630k-audioset-best.pt
 
 For reproduibility, place the file in:
-[data/checkpoints/music_audioset_epoch_15_esc_90.14.pt]
+[data/checkpoints/630k-audioset-best.pt]
 
 ## CLAP Embeddings
 
