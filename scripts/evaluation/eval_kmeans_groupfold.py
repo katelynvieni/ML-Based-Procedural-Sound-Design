@@ -1,3 +1,13 @@
+"""
+Evaluate k-means clustering 
+
+Outputs:
+- evaluation/Kmeans_groupfold/metrics_by_fold.csv
+- evaluation/Kmeans_groupfold/avg_confusion_row_norm.png
+- evaluation/Kmeans_groupfold/f1_per_class_mean_std.png
+- evaluation/Kmeans_groupfold/pca_scatter_truecolor_predmarker.png
+
+"""
 import json
 import warnings
 from pathlib import Path
