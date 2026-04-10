@@ -35,7 +35,7 @@ Download all external project files here: [https://huggingface.co/datasets/krvie
 2. Create and activate a Python virtual environment.
 3. Install the packages in `requirements.txt`.
 4. Install Max/MSP 9.1 or later if you want to run the interactive synthesis patch.
-5. Download the CLAP checkpoint and dataset from Hugging Face: [LINK HERE]
+5. Download the CLAP checkpoint and dataset from Hugging Face
 6. Place the CLAP checkpoint at `data/checkpoints/630k-audioset-best.pt`.
 7. Place the explosion dataset in `data/audio/`.
 8. If you want to use the provided precomputed results, download the embeddings and K-means outputs from Hugging Face and place them in the expected `data/` subfolders.
