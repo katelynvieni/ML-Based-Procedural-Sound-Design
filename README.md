@@ -2,9 +2,7 @@
 
 ## Overview
 
-This project contains a hybrid procedural explosion sound design system using CLAP-based audio embeddings, K-means clustering, and real-time retrieval in Max/MSP.
-
-Because of file size limits, some project assets are hosted separately on Hugging Face rather than included directly in this GitHub repository.
+This GitHub repository documents and supports the development of a hybrid procedural explosion sound design system that combines machine learning-based audio analysis with real-time generation in Max/MSP. It contains the code, project files, and documentation needed to reproduce the main stages of the workflow, including dataset indexing, CLAP embedding generation, K-means analysis, JSON construction for retrieval, and the final interactive Max patch. The importance of this research lies in its attempt to bridge the gap between realism and control in sound design, especially for complex effects like explosions that are difficult to recreate convincingly with traditional procedural methods alone. By using audio embeddings to organize and retrieve meaningful sound components, this project explores a practical way to combine recorded effects with real-time variation and user control, making it relevant to modern interactive media applications.
 
 ## Choose a Setup Option
 
@@ -31,19 +29,25 @@ For this option, you will need:
 - Max/MSP 9.1 or later if you also want to run the interactive patch
 - external project files downloaded separately from Hugging Face
 
-## External Files
+## Expected File Structure
 
-The following files are hosted separately on Hugging Face:
+Place external files in the following locations:
 
-- CLAP checkpoint: place locally at `data/checkpoints/630k-audioset-best.pt`
-- Explosion dataset: place locally in `data/audio/`
+- `data/checkpoints/630k-audioset-best.pt`
+- `data/audio/`
 
 Download them here:  
 [Hugging Face Dataset](https://huggingface.co/datasets/krvieni/ML-Based-Procedural-Sound-Design/tree/main)
 
-## Full Pipeline Setup
+Generated files will be written to project subfolders such as:
 
-Clone this repository and install the Python dependencies:
+- `data/metadata/`
+- `data/embeddings/`
+- `data/kmeans_results/`
+
+## Running the Pipeline
+
+Place the required files in the expected locations before running the pipeline then clone this repository and install the Python dependencies:
 
 ```bash
 git clone https://github.com/katelynvieni/ML-Based-Procedural-Sound-Design.git
@@ -54,16 +58,14 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-Place the required external files in the expected locations before running the pipeline.
+Then, run the main scripts in the following order: 
 
-## Main Pipeline Scripts
+1. `scripts/audio_dataset.py`
+2. `scripts/CLAP_embed.py`
+3. `scripts/kmeans.py`
+4. `scripts/build_max_embedding_index.py`
 
-The main scripts in this repository are:
-
-- `scripts/audio_dataset.py`
-- `scripts/CLAP_embed.py`
-- `scripts/kmeans.py`
-- `scripts/build_max_embedding_index.py`
+These scripts prepare the dataset metadata, generate CLAP embeddings, run K-means analysis, and build the JSON index used by the Max/MSP patch.
 
 Evaluation scripts are located in:
 
@@ -84,12 +86,10 @@ The script `scripts/evaluation/plot_max_eval.py` generates waveform, envelope, a
 If you downloaded the prepared Max/MSP project, you can use it directly without cloning this repository or running the Python scripts.
 
 1. Open the Max project folder and launch the main patch in Max/MSP.
-2. Make sure the required audio files (120 total), JSON index file `segments_index_max.json`, and JS script `json_to_segments.js` are inside the project folder.
+2. Make sure the required audio files, JSON index file `segments_index_max.json`, and JS script `json_to_segments.js` are inside the project folder.
 3. Turn on DSP/audio in Max if it is not already enabled.
-5. Select an explosion category from the dropdown menu.
-6. Adjust the Intensity, Distance, Duration, and Cohesion controls as desired.
-7. Press Generate to create an explosion.
-8. If the first trigger does not fully play, press Generate again. This can occasionally happen due to a brief loading or buffer latency when parameters are updated.
-9. Use the record controls if you want to capture and save the generated output.
-
-
+4. Select an explosion category from the dropdown menu.
+5. Adjust the Intensity, Distance, Duration, and Cohesion controls as desired.
+6. Press Generate to create an explosion
+7. If the first trigger does not fully play, press Generate again. This can occasionally happen due to a brief loading or buffer latency when parameters are updated).
+8. Use the record controls if you want to capture and save the generated output.
