@@ -71,9 +71,13 @@ Evaluation scripts are located in:
 - `scripts/evaluation/eval_kmeans_groupfold.py`
 - `scripts/evaluation/plot_max_eval.py`
 
-## Max Output Evaluation
-
 The script `scripts/evaluation/plot_max_eval.py` generates waveform, envelope, and spectrogram figures from recorded Max/MSP outputs. The default version is set up for the evaluation examples used in this project, but the input paths, filenames, and comparison groups can be modified to match other recordings or custom evaluation cases.
+
+### Max/MSP Project Files
+
+- The Max/MSP project contains the main interactive patch used for real-time explosion generation, playback, recording, and saving.
+- The JSON file `segments_index_max.json` acts as a segment index and stores metadata for each labeled segment, including category, label, audio path, start and end times, duration, sample rate, and PCA-reduced embedding values.
+- The JavaScript file `json_to_segments.js` loads and parses the JSON data, maps the user controls to retrieval behavior, and selects ground, shock, and roar segments for playback in Max/MSP.
 
 ## Running the Max/MSP System
 
