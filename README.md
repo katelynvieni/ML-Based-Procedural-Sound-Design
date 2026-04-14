@@ -77,6 +77,15 @@ The script `scripts/evaluation/plot_max_eval.py` generates waveform, envelope, a
 
 ## Running the Max/MSP System
 
-To run the interactive system, open the main Max/MSP patch.
-
 If you downloaded the prepared Max/MSP project, you can use it directly without cloning this repository or running the Python scripts.
+
+1. Open the Max project folder and launch the main patch in Max/MSP.
+2. Make sure the required audio files (120 total), JSON index file `segments_index_max.json`, and JS script `json_to_segments.js` are inside the project folder.
+3. Turn on DSP/audio in Max if it is not already enabled.
+5. Select an explosion category from the dropdown menu.
+6. Adjust the Intensity, Distance, Duration, and Cohesion controls as desired.
+7. Press Generate to create an explosion.
+8. If the first trigger does not fully play, press Generate again. This can occasionally happen due to a brief loading or buffer latency when parameters are updated.
+9. Use the record controls if you want to capture and save the generated output.
+
+
