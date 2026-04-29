@@ -4,10 +4,9 @@ Generate Max/MSP output plots
 Outputs:
 - eval_figures/fig_intensity_waveform_envelope.png
 - eval_figures/fig_distance_spectrogram.png
-- eval_figures/fig_duration_waveform_envelope.png
+- eval_figures/fig_duration_waveform.png
 - eval_figures/fig_baseline_generated_spectrogram.png
 - eval_figures/fig_baseline_generated_waveform_envelope.png
-
 """
 
 from pathlib import Path
@@ -41,8 +40,8 @@ FILES = {
         AUDIO_DIR / "duration_05.wav",
         AUDIO_DIR / "duration_09.wav",
     ],
-    "baseline": AUDIO_DIR / "baseline_reference.wav",
-    "generated": AUDIO_DIR / "generated_reference.wav",
+    "baseline": AUDIO_DIR / "baseline.wav",
+    "generated": AUDIO_DIR / "generated.wav",
 }
 
 LABELS_3 = ["0.1", "0.5", "0.9"]
@@ -111,12 +110,41 @@ def save_waveform_envelope_figure(file_list, title, outpath):
     for ax, y, label in zip(axes, signals, LABELS_3):
         t = np.arange(len(y)) / TARGET_SR
         ax.plot(t, y, linewidth=0.8, label="Waveform")
+
         env_t, env = amplitude_envelope(y)
         env = env / np.max(env) if np.max(env) > 0 else env
         ax.plot(env_t, env, linewidth=1.2, label="Envelope")
+
         ax.set_title(label)
         ax.set_ylabel("Amplitude")
         ax.legend(loc="upper right")
+
+    axes[-1].set_xlabel("Time (s)")
+    fig.suptitle(title)
+    fig.tight_layout()
+    fig.savefig(outpath, dpi=300, bbox_inches="tight")
+    plt.close(fig)
+
+
+def save_duration_figure(file_list, title, outpath):
+    """Special function for duration graphs with alignment, larger size, and symlog scale."""
+    signals = []
+    for f in file_list:
+        y, sr = load_audio(f)
+        y = align_to_onset(y, sr)
+        signals.append(normalize_for_plot(y))
+
+    fig, axes = plt.subplots(len(signals), 1, figsize=(14, 10), sharex=False)
+
+    if len(signals) == 1:
+        axes = [axes]
+
+    for ax, y, label in zip(axes, signals, LABELS_3):
+        t = np.arange(len(y)) / TARGET_SR
+        ax.plot(t, y, linewidth=0.8)
+        ax.set_title(label)
+        ax.set_ylabel("Amplitude")
+        ax.set_yscale('symlog', linthresh=0.01)
 
     axes[-1].set_xlabel("Time (s)")
     fig.suptitle(title)
@@ -254,10 +282,10 @@ def main():
         OUT_DIR / "fig_distance_spectrogram.png"
     )
 
-    save_waveform_envelope_figure(
+    save_duration_figure(
         FILES["duration"],
-        "Duration Sweep: Waveform and Envelope",
-        OUT_DIR / "fig_duration_waveform_envelope.png"
+        "Duration Sweep: Waveform",
+        OUT_DIR / "fig_duration_waveform.png"
     )
 
     save_baseline_generated_spectrogram(
