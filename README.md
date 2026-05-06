@@ -95,5 +95,4 @@ If you downloaded the prepared Max/MSP project, you can use it directly without 
 8. Use the record controls if you want to capture and save the generated output.
 
 ## Demo Video
-
-A short demo of the Max/MSP procedural explosion generator is available here: [Watch Demo]((https://youtube.com/shorts/-OhRycIzDUo?feature=share)).
+A short demo of the Max/MSP procedural explosion generator is available here: [Watch Demo](https://youtube.com/shorts/-OhRycIzDUo?feature=share).
