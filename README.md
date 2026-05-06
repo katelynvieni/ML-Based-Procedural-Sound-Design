@@ -93,3 +93,7 @@ If you downloaded the prepared Max/MSP project, you can use it directly without 
 6. Press Generate to create an explosion
 7. If the first trigger does not fully play, press Generate again. This can occasionally happen due to a brief loading or buffer latency when parameters are updated).
 8. Use the record controls if you want to capture and save the generated output.
+
+## Demo Video
+
+A short demo of the Max/MSP procedural explosion generator is available here: [Watch Demo]((https://youtube.com/shorts/-OhRycIzDUo?feature=share)).
