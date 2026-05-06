@@ -94,5 +94,13 @@ If you downloaded the prepared Max/MSP project, you can use it directly without 
 7. If the first trigger does not fully play, press Generate again. This can occasionally happen due to a brief loading or buffer latency when parameters are updated).
 8. Use the record controls if you want to capture and save the generated output.
 
-## Demo Video
+The Max/MSP patch provides an interactive interface for generating layered explosion sounds from ground, shock, and roar components. Users can adjust category, intensity, distance, duration, and cohesion parameters in real time.
+
+![Max Patch Interface](max_patch/docs/max_UI.png)
+
+The patch reads a JSON index containing segment metadata and PCA-reduced CLAP embeddings, then selects and schedules the three explosion components for playback.
+
+![Max Patch Overview](max_patch/docs/main_patch.png)
+
+### Demo Video
 A short demo of the Max/MSP procedural explosion generator is available here: [Watch Demo](https://youtube.com/shorts/-OhRycIzDUo?feature=share).
